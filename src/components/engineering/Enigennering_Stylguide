@@ -1,0 +1,118 @@
+# Ruesken Engineering – Web Design & Storytelling Konzept
+
+**Version:** 1.0 (Final Concept)
+**Ziel:** High-End Corporate Website für KI-Automatisierung im deutschen Mittelstand.
+**Vibe:** „German Engineering“ – Präzise, dunkel, wertig, strukturiert.
+
+---
+
+## 1. Core Identity & Zielgruppe
+
+### Zielgruppe (Persona)
+* **Wer:** Geschäftsführer, Chef-Ingenieure, Informatiker, Automatisierungsexperte im deutschen Mittelstand (Maschinenbau, aber auch anderen Branchen).
+* **Altersschwerpunkt:** 35 bis 60 Jahre.
+* **Mindset:** Pragmatisch, qualitätsbewusst, skeptisch aber interessiert an KI-Automatisierung.
+* **Bedürfnis:** Automatisierung, Prozessoptimierung, Fachkräftemangel lösen, Sicherheit (EU AI Act).
+
+### Storytelling Arc
+Die Website erzählt eine visuelle Geschichte der „Reinigung“ und Strukturierung mit dem Motto "Von manuellen Prozessen zur Autonomen Wertschöpfung":
+1.  **Start:** Manuell & Chaotisch (Hero/Problem)
+2.  **Mitte:** Strukturierung durch Technologie (Lösung)
+3.  **Ende:** Messbarer Erfolg & Autonomie (Projekte/Impact)
+
+---
+
+## 2. Design Philosophie & Visual Styleguide
+
+### Design-Tonalität
+* **Seriosität vor Show:** Das Design muss Professionalität und Vertrauen ausstrahlen. 
+* **Kein "Gaming-Look":** Vermeidung von übermäßigen Neon-Effekten, hektischen Animationen oder "Cyberpunk"-Ästhetik. Es soll wie ein hochwertiges Ingenieurs-Tool oder ein modernes Industriepanel wirken, nicht wie ein Computerspiel.
+* **Klarheit:** Fokus auf Übersichtlichkeit und Lesbarkeit, besonders für die Zielgruppe 35-60. Großzügiges Spacing und klare Hierarchien.
+
+### Farbpalette
+* **Background (Global):** `#050A14` (Deep Navy/Black) für Hero, Solutions und Projects.
+* **Technical Light Theme (Sektion 1):** `#F8F9FA`. Ein bewusster Stilbruch (Hell statt Dunkel), um analytische Transparenz und Sachlichkeit zu vermitteln.
+* **Surface (Cards/Elements):** `#0F1623` (im Dark Mode) / Weiß (im Light Mode).
+* **Text Primary:** `#FFFFFF` (Headlines).
+* **Text Secondary:** `#B0B8C4` (Body).
+* **Highlight / Impact Color:** `#00E091` (Neon-Mintgrün).
+    * *Regel:* **Nur** für positive Ergebnisse (Zahlen), Call-to-Actions und aktive Zustände nutzen. Niemals als bloße Dekoration oder Hintergrundfläche.
+* **Alert / Problem Hint:** `#FF453A` (Dunkles Rot/Orange, nur als 1px Border mit 20% Opacity).
+
+### Typografie
+* **Headlines & Body:** Sans-Serif (z.B. Inter). Clean, gut lesbar.
+* **Data & Impact Numbers:** Monospace (z.B. JetBrains Mono, Roboto Mono).
+    * *Einsatz:* In Sektion 3 für die Ergebnisse („-50% Zeit“). Wirkt technisch/gemessen.
+
+### Grafische Elemente
+* **Grid Lines:** Feine vertikale Linien (1px, 5% Opacity), die über die ganze Seite laufen (wie Leiterbahnen oder CAD-Raster).
+* **Shapes:** Scharfe Kanten oder minimale Radien (2-4px). Kein „rundes/verspieltes“ Design.
+* **Glassmorphism:** Dunkles Milchglas für Panels, aber subtil.
+
+---
+
+## 3. Section Breakdown (UI & Content)
+
+### Hero: Das Versprechen
+* **Status:** Bestehendes Design beibehalten.
+* **Übergang:** Am unteren Rand faden die vertikalen Grid-Linien sanft ein und führen den Blick nach unten.
+
+### Sektion 1: Das Problem („Die Bremse“)
+* **Story:** Hier wird der Schmerzpunkt visualisiert. Der Kunde soll mit seinem realen Pain abgeholt werden.
+* **UI Style:** „Technical Light“ / Dossier-Look. Hell, scharfkantig, analytisch.
+* **Elemente:** 
+    * **Background:** `#F8F9FA` mit technischem 40px Grid-Raster.
+    * **Karten:** 3 uniforme Spalten mit „Liquid Glass“ Backing-Layer. Subtile Rotation für Tiefe, aber fest im Content verankert.
+    * **Hierarchy:** Große headlines und noch größere, fettgedruckte Problem-Beschreibungen (2xl/3xl).
+* **Metric (Status Quo):**
+    * Fokus rein auf den **Ist-Zustand**. Keine Lösung oder Vergleich in dieser Sektion.
+    * Wert (z.B. „48h“) in fettem Schwarz oder dezentem Rot + Indikator „Ineffizient“.
+* **Content:**
+    1.  Hohe Fehlerquote (Flüchtigkeitsfehler kosten Geld).
+    2.  Langsame Reaktionszeiten (Kunden warten zu lange).
+    3.  Fachkräftemangel (Ingenieure sind blockiert).
+
+### Sektion 2: Die Lösung („Der technologische Kern“)
+* **Story:** Die Linien entwirren sich, werden gerade und leuchten blau/weiß. Struktur kehrt ein.
+* **Layout:** Split Screen. Links: Interaktive Liste. Rechts: Technische Visualisierung.
+* **Content (Reihenfolge wichtig!):**
+    1.  **Autonome Systeme (Agentic AI):** Keine Chatbots, sondern Systeme, die im ERP/CRM handeln.
+    2.  **Gesichertes Wissen (RAG):** Kein Datenabfluss, ISO/Normen-basiert, halluzinationsfrei.
+    3.  **Technische Visuelle Erfassung:** Versteht Zeichnungen, CAD & R&I-Fließbilder (Ersatz für „Multimodalität“).
+* **Interaktion (UI):**
+    * Die Liste links fungiert als „Schalter“.
+    * **Aktives Element:** Hat links einen vertikalen Balken in `#00E091` (Neon-Grün).
+    * **Grafik rechts:** Eine stilisierte „Black Box“ (Glas-Optik), die je nach aktivem Punkt das innere Icon ändert (Zahnrad / Schild / Auge).
+
+### Sektion 3: Projekte & Impact („Der Beweis“)
+* **Story:** Theorie wird Praxis. Hier dominiert die Highlight-Farbe `#00E091`.
+* **Layout:** Karussell/Slider (3 Karten gleichzeitig sichtbar).
+* **Card UI:**
+    * **Bild (Oben):** Realbild (Fertigung/Ingenieur). *Default:* Entsättigt (-20%). *Hover:* Volle Farbe. Gradient Overlay für Lesbarkeit.
+    * **Kontext (Mitte):** Kunde/Branche + Problem (kurz).
+    * **Footer der Karte (WICHTIG):** Abgetrennter Bereich unten.
+    * **Inhalt Footer:** Die Impact-Zahl in **Monospace Font** und Farbe `#00E091`.
+        * *Beispiel:* `>> -50% PROJEKTZEIT` oder `ROI: 3 MONATE`
+* **Trust Element:** Banner/Block in der Nähe: „Made in Germany & EU AI Act Ready“.
+
+### Sektion 4: Academy
+* **Style:** Blueprint / „Work in Progress“ Look.
+* **Border:** Gestrichelte Linie (Dashed Border, 1px Grau) um die Sektion.
+* **Element:** „Coming Soon“ Badge.
+* **Inhalt:** Befähigung des Teams für das KI-Zeitalter.
+
+### Sektion 5: Footer & Kontakt
+* **Style:** Clean, zentriert. Abschluss des Rahmens.
+* **CTA Button:**
+    * Primary Style (Weiß oder Outline).
+    * Hover: Füllt sich mit `#00E091` oder Pfeil-Animation.
+    * Text: „Erstgespräch buchen“.
+
+---
+
+## 4. Dev Notes / Animationen
+* **Scroll-Trigger:** Die vertikalen Grid-Linien sollten nicht statisch sein, sondern sanft mit dem Scrollen pulsieren oder sich aufbauen (Parallax-Effekt).
+* **Performance:** Keine schweren Video-Hintergründe. Eher CSS-Gradients und SVG-Animationen für den Tech-Look nutzen.
+* **Mobile:** Auf Mobile stapeln sich die Sektionen 2 (Lösung) und 3 (Projekte), bleiben aber im „Dark Mode“ Look konsistent.
+
+http://localhost:8081/

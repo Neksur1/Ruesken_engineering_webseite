@@ -19,8 +19,8 @@ const EngineeringNavigation = () => {
     }, []);
 
     const navItems = [
-        { label: t.solutions, href: '#solutions' },
-        { label: t.projects, href: '#projects' },
+        { label: t.solutions, href: '#' },
+        { label: t.projects, href: '#' },
         { label: t.academy, href: '#', badge: t.soon },
     ];
 
@@ -50,11 +50,9 @@ const EngineeringNavigation = () => {
                             <a
                                 key={idx}
                                 href={item.href}
-                                className={`text-base font-medium tracking-wide transition-colors duration-300 flex items-center gap-2 relative group
-                                    ${item.badge ? 'cursor-default text-white/40' : 'text-white/80 hover:text-white'}
-                                `}
+                                className={`text-base font-medium tracking-wide transition-colors duration-300 flex items-center gap-2 relative group cursor-default text-white/40`}
                                 onClick={(e) => {
-                                    if (item.badge) e.preventDefault();
+                                    e.preventDefault();
                                 }}
                             >
                                 {item.label}
@@ -62,9 +60,6 @@ const EngineeringNavigation = () => {
                                     <span className="text-[10px] text-white/50 font-mono tracking-wider opacity-80">
                                         // {item.badge.toUpperCase()}
                                     </span>
-                                )}
-                                {!item.badge && (
-                                    <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-white/50 transition-all duration-300 group-hover:w-full opacity-50" />
                                 )}
                             </a>
                         ))}
@@ -75,8 +70,9 @@ const EngineeringNavigation = () => {
 
                     {/* Contact Link */}
                     <a
-                        href="#contact"
-                        className="text-base font-medium text-white/80 hover:text-white transition-colors tracking-wide"
+                        href="#"
+                        onClick={(e) => e.preventDefault()}
+                        className="text-base font-medium text-white/40 cursor-default tracking-wide"
                     >
                         {t.contact}
                     </a>
@@ -115,9 +111,7 @@ const EngineeringNavigation = () => {
                         <a
                             key={idx}
                             href={item.href}
-                            className={`text-lg font-medium flex items-center gap-3
-                                ${item.badge ? 'text-white/40' : 'text-white/80'}
-                            `}
+                            className={`text-lg font-medium flex items-center gap-3 text-white/40 cursor-default`}
                             onClick={() => {
                                 if (!item.badge) setMobileMenuOpen(false);
                             }}
@@ -131,7 +125,7 @@ const EngineeringNavigation = () => {
                         </a>
                     ))}
                     <div className="h-[1px] w-full bg-white/10 my-2" />
-                    <a href="#contact" className="text-lg font-medium text-white/80" onClick={() => setMobileMenuOpen(false)}>
+                    <a href="#" className="text-lg font-medium text-white/40" onClick={(e) => e.preventDefault()}>
                         {t.contact}
                     </a>
                     <div className="flex gap-4 pt-2">

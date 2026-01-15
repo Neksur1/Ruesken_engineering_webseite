@@ -34,11 +34,11 @@ export const translations = {
                 socialProof: "Tech Stack:"
             },
             valueProposition: {
-                title: "Diagnose: Wo wertvolle Marge verloren geht.",
+                title: "Wachstumsbremse Manuelle Prozesse",
                 cards: [
                     {
-                        title: "Hohe Fehlerquote",
-                        description: "Wo Menschen unter Zeitdruck Daten kopieren, entstehen <strong>Flüchtigkeitsfehler</strong>.",
+                        title: "Fehleranfälligkeit",
+                        description: "Flüchtigkeitsfehler in repetitiven Tasks kosten Geld.",
                         metric: {
                             label: "Fehlerquote",
                             manual: "Manuell: ~4-8%",
@@ -46,21 +46,21 @@ export const translations = {
                         }
                     },
                     {
-                        title: "Fachkräftemangel",
-                        description: "Sie müssen Aufträge ablehnen, weil <strong>qualifiziertes Personal</strong> fehlt.",
-                        metric: {
-                            label: "Skalierbarkeit",
-                            manual: "Begrenzt durch Personal",
-                            ai: "Unbegrenzt skalierbar"
-                        }
-                    },
-                    {
-                        title: "Langsame Reaktionszeiten",
-                        description: "Manuelle Prozesse machen Sie unbeweglich. Der <strong>Wettbewerb</strong> ist schneller.",
+                        title: "Reaktionszeit",
+                        description: "Kunden warten Tage auf Angebote oder Support.",
                         metric: {
                             label: "Durchlaufzeit",
                             manual: "Manuell: 48h",
                             ai: "AI-System: < 2min"
+                        }
+                    },
+                    {
+                        title: "Fachkräftemangel",
+                        description: "Qualifizierte Ingenieure sind mit Admin-Aufgaben blockiert.",
+                        metric: {
+                            label: "Skalierbarkeit",
+                            manual: "Begrenzt durch Personal",
+                            ai: "Unbegrenzt skalierbar"
                         }
                     }
                 ]
@@ -170,11 +170,11 @@ export const translations = {
                 socialProof: "Tech Stack:"
             },
             valueProposition: {
-                title: "Diagnosis: Where valuable margin is lost.",
+                title: "Growth Brake: Manual Processes",
                 cards: [
                     {
-                        title: "High Error Rate",
-                        description: "Where humans copy data under time pressure, <strong>careless errors</strong> occur.",
+                        title: "Error Rate",
+                        description: "Careless errors in repetitive tasks cost money.",
                         metric: {
                             label: "Error Rate",
                             manual: "Manual: ~4-8%",
@@ -182,21 +182,21 @@ export const translations = {
                         }
                     },
                     {
-                        title: "Labor Shortage",
-                        description: "You have to reject orders because <strong>qualified personnel</strong> is missing.",
-                        metric: {
-                            label: "Scalability",
-                            manual: "Limited by Staff",
-                            ai: "Unlimited & Instant"
-                        }
-                    },
-                    {
-                        title: "Slow Response Times",
-                        description: "Manual processes make you immobile. The <strong>competition</strong> is faster.",
+                        title: "Response Time",
+                        description: "Customers wait days for quotes or support.",
                         metric: {
                             label: "Processing Time",
                             manual: "Manual: 48h",
                             ai: "AI System: < 2min"
+                        }
+                    },
+                    {
+                        title: "Labor Shortage",
+                        description: "Qualified engineers are blocked with admin tasks.",
+                        metric: {
+                            label: "Scalability",
+                            manual: "Limited by Staff",
+                            ai: "Unlimited & Instant"
                         }
                     }
                 ]

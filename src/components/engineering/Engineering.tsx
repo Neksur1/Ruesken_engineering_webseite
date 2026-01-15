@@ -2,11 +2,8 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "../../context/LanguageContext";
 import { translations } from "../../i18n/translations";
-import ValueProposition from './ValueProposition';
-import Solutions from './Solutions';
-import Projects from './Projects';
 import EngineeringNavigation from './EngineeringNavigation';
-import { TracingBeam } from '../ui/tracing-beam';
+import ValueProposition from './ValueProposition';
 
 const Engineering = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -207,13 +204,7 @@ const Engineering = () => {
                         </div>
                     </div>
                 </main>
-
-                {/* Value Proposition Section, Solutions, and Projects inside TracingBeam */}
-                <TracingBeam className="max-w-[1240px] px-6">
-                    <ValueProposition />
-                    <Solutions />
-                    <Projects />
-                </TracingBeam>
+                <ValueProposition />
             </div>
 
             <style>{`
