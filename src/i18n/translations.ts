@@ -1,27 +1,5 @@
 export const translations = {
     de: {
-        hero: {
-            subline: {
-                founder: "Founder",
-                expert: "AI-Expert",
-                engineer: "Engineer",
-            },
-            intro: "Spezialisiert auf Applied AI und industrielle Automatisierung. Fokus auf der Entwicklung skalierbarer Systeme, die Engineering-Prozesse durch intelligente Algorithmen beschleunigen.",
-        },
-        nav: {
-            engineering: {
-                title: "RUESKEN ENGINEERING",
-                subtitle: "Corporate AI & Automation Solutions",
-            },
-            additive: {
-                title: "ADDITIVE LAB",
-                subtitle: "Rapid Prototyping & Manufacturing",
-            },
-            connect: {
-                title: "CONNECT",
-                subtitle: "LinkedIn / E-Mail",
-            },
-        },
         footer: {
             blog: "Blog",
             imprint: "Impressum",
@@ -150,7 +128,7 @@ export const translations = {
                         title: "Intelligent Doc Processing",
                         challenge: "PDF-Sichtung von Exposés zu langsam für den Markt.",
                         result: "Echtzeit-Bewertung",
-                        details: "Unstrukturierte Daten zu Datenbank",
+                        details: "Unstructured Data zu Datenbank",
                         slug: "doc-processing"
                     }
                 ]
@@ -158,28 +136,6 @@ export const translations = {
         }
     },
     en: {
-        hero: {
-            subline: {
-                founder: "Founder",
-                expert: "AI-Expert",
-                engineer: "Engineer",
-            },
-            intro: "Specializing in Applied AI and industrial automation. Focused on developing scalable systems that accelerate engineering processes through intelligent algorithms.",
-        },
-        nav: {
-            engineering: {
-                title: "RUESKEN ENGINEERING",
-                subtitle: "Corporate AI & Automation Solutions",
-            },
-            additive: {
-                title: "ADDITIVE LAB",
-                subtitle: "Rapid Prototyping & Manufacturing",
-            },
-            connect: {
-                title: "CONNECT",
-                subtitle: "LinkedIn / Email",
-            },
-        },
         footer: {
             blog: "Blog",
             imprint: "Imprint",
