@@ -127,6 +127,22 @@ export const translations = {
                         result: "Echtzeit-Bewertung",
                         details: "Unstructured Data zu Datenbank",
                         slug: "doc-processing"
+                    },
+                    {
+                        category: "Logistik",
+                        title: "Supply Chain Optimization",
+                        challenge: "Prognosegenauigkeit < 60% führt zu Überbeständen.",
+                        result: "-15% Lagerkosten",
+                        details: "Predictive Analytics auf ERP-Daten",
+                        slug: "supply-chain"
+                    },
+                    {
+                        category: "Fertigung",
+                        title: "Q-Control Automation",
+                        challenge: "Visuelle Prüfung ist Flaschenhals in Produktion.",
+                        result: "Durchsatz +40%",
+                        details: "Computer Vision & Edge AI",
+                        slug: "q-control"
                     }
                 ]
             }
@@ -260,6 +276,22 @@ export const translations = {
                         result: "Real-time Evaluation",
                         details: "Unstructured Data to Database",
                         slug: "doc-processing"
+                    },
+                    {
+                        category: "Logistics",
+                        title: "Supply Chain Optimization",
+                        challenge: "Forecast accuracy < 60% creating massive overstock.",
+                        result: "-15% Storage Costs",
+                        details: "Predictive Analytics on ERP Data",
+                        slug: "supply-chain"
+                    },
+                    {
+                        category: "Manufacturing",
+                        title: "Q-Control Automation",
+                        challenge: "Visual inspection bottleneck slowing down produc.",
+                        result: "Throughput +40%",
+                        details: "Computer Vision & Edge AI",
+                        slug: "q-control"
                     }
                 ]
             }

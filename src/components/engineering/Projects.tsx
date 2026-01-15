@@ -1,164 +1,135 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from "../../context/LanguageContext";
 import { translations } from "../../i18n/translations";
-import { ArrowUpRight, Cpu, Layers, FileText } from 'lucide-react';
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Projects = () => {
     const { language } = useLanguage();
     const t = translations[language].engineering.projects;
-    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Subtle background mesh animation
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
+    // Image mappings for the projects
+    // Usings high-quality Unsplash source images that fit the "German Engineering" client profiles
+    const projectImages = [
+        "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop", // Tourism (Plane/Global)
+        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop", // Sales/Meeting (Business)
+        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop", // Real Estate (Architecture)
+        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop", // Logistics (Warehouse)
+        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop", // Manufacturing (Industry 4.0)
+    ];
 
-        let width = canvas.width;
-        let height = canvas.height;
-        let animationId: number;
-
-        const points: { x: number; y: number; vx: number; vy: number }[] = [];
-        const numPoints = 20;
-
-        const init = () => {
-            if (canvas.parentElement) {
-                canvas.width = canvas.parentElement.offsetWidth;
-                canvas.height = canvas.parentElement.offsetHeight;
-            }
-            width = canvas.width;
-            height = canvas.height;
-            points.length = 0;
-            for (let i = 0; i < numPoints; i++) {
-                points.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height,
-                    vx: (Math.random() - 0.5) * 0.5,
-                    vy: (Math.random() - 0.5) * 0.5
-                });
-            }
-        };
-
-        const animate = () => {
-            if (!ctx) return;
-            ctx.clearRect(0, 0, width, height);
-
-            // Update points
-            points.forEach(p => {
-                p.x += p.vx;
-                p.y += p.vy;
-                if (p.x < 0 || p.x > width) p.vx *= -1;
-                if (p.y < 0 || p.y > height) p.vy *= -1;
-            });
-
-            // Draw connections
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            for (let i = 0; i < points.length; i++) {
-                for (let j = i + 1; j < points.length; j++) {
-                    const dx = points[i].x - points[j].x;
-                    const dy = points[i].y - points[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 200) {
-                        ctx.moveTo(points[i].x, points[i].y);
-                        ctx.lineTo(points[j].x, points[j].y);
-                    }
-                }
-            }
-            ctx.stroke();
-            animationId = requestAnimationFrame(animate);
-        };
-
-        init();
-        animate();
-
-        const handleResize = () => init();
-        window.addEventListener('resize', handleResize);
-        return () => {
-            window.removeEventListener('resize', handleResize);
-            cancelAnimationFrame(animationId);
-        };
-    }, []);
-
-    const getIcon = (slug: string) => {
-        switch (slug) {
-            case 'content-automation': return Layers;
-            case 'sales-agents': return Cpu;
-            case 'doc-processing': return FileText;
-            default: return Cpu;
-        }
+    const nextSlide = () => {
+        setCurrentIndex(prev => (prev + 1) % t.items.length);
     };
 
+    const prevSlide = () => {
+        setCurrentIndex(prev => (prev === 0 ? t.items.length - 1 : prev - 1));
+    };
+
+    const getVisibleItems = () => {
+        const items = [];
+        for (let i = 0; i < 3; i++) {
+            const index = (currentIndex + i) % t.items.length;
+            items.push({
+                ...t.items[index],
+                image: projectImages[index],
+                originalIndex: index
+            });
+        }
+        return items;
+    };
+
+    const visibleItems = getVisibleItems();
+
     return (
-        <section id="projects" className="relative w-full py-32 bg-[#020617] text-luxury-text font-sans overflow-hidden">
-            {/* Background Mesh */}
-            <canvas ref={canvasRef} className="absolute inset-0 z-[0] pointer-events-none" />
+        <section className="relative w-full py-32 bg-[#F8F9FA] text-[#0F172A] border-t border-[#E2E8F0]">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply z-0"
+                style={{ backgroundImage: 'linear-gradient(#CBD5E1 1px, transparent 1px), linear-gradient(90deg, #CBD5E1 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+            />
 
-            {/* Gradient Glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-900/10 rounded-full blur-[120px] pointer-events-none z-0" />
-
-            <div className="relative z-10 max-w-7xl mx-auto px-[5%] md:px-[10%]">
+            <div className="relative z-10 w-full px-[5%] md:px-[10%]">
                 {/* Header */}
-                <div className="mb-24 flex flex-col items-center text-center">
-                    <span className="text-emerald-500 font-mono text-xs tracking-[0.3em] uppercase mb-4">Case Studies</span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
-                        {t.header.title}
-                    </h2>
-                    <div className="w-16 h-1 bg-gradient-to-r from-emerald-500 to-transparent mb-8" />
-                    <p className="text-[#94A3B8] text-lg md:text-xl leading-relaxed max-w-2xl">
-                        {t.header.subtitle}
-                    </p>
+                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                    <div className="max-w-3xl">
+                        <span className="block text-xs font-mono uppercase tracking-widest text-[#64748B] mb-4">
+                            Success Stories
+                        </span>
+                        <h2 className="text-4xl md:text-6xl font-bold text-[#0F172A] tracking-tight leading-[1.1] mb-4">
+                            {t.header.title}
+                        </h2>
+                        <p className="text-lg text-[#334155] leading-relaxed max-w-xl">
+                            {t.header.subtitle}
+                        </p>
+                    </div>
                 </div>
 
-                {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {t.items.map((project, index) => {
-                        const Icon = getIcon(project.slug);
-                        return (
-                            <div
-                                key={index}
-                                className="group relative bg-[#0f172a]/50 backdrop-blur-sm border border-white/5 hover:border-emerald-500/30 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.1)] cursor-pointer overflow-hidden flex flex-col"
-                            >
-                                {/* Hover Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 via-emerald-500/0 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                {/* Carousel */}
+                <div className="relative group/carousel">
 
-                                {/* Header: Category & Icon */}
-                                <div className="flex justify-between items-start mb-6">
-                                    <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-wider text-slate-400 group-hover:text-white transition-colors">
-                                        {project.category}
-                                    </div>
-                                    <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-500 group-hover:scale-110 transition-transform duration-300">
-                                        <Icon size={20} />
-                                    </div>
+                    {/* Navigation Buttons */}
+                    <button
+                        onClick={prevSlide}
+                        className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-[#E2E8F0] bg-white/80 backdrop-blur text-[#0F172A] shadow-sm hover:bg-[#0F172A] hover:text-white transition-all duration-300 rounded-full md:rounded-none"
+                    >
+                        <ChevronLeft className="w-6 h-6" />
+                    </button>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {visibleItems.map((project, i) => (
+                            <div
+                                key={`${project.slug}-${i}`}
+                                className="group flex flex-col bg-white border border-[#E2E8F0] shadow-[0_30px_70px_-20px_rgba(0,0,0,0.1)] overflow-hidden hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] transition-all duration-500 animate-in fade-in slide-in-from-right-4"
+                                style={{ animationDelay: `${i * 100}ms` }}
+                            >
+                                {/* IMAGE AREA with B&W -> Color Effect */}
+                                <div className="h-48 border-b border-[#E2E8F0] relative overflow-hidden bg-slate-100">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover transition-all duration-700 filter grayscale contrast-[1.1] brightness-[0.9] group-hover:grayscale-0 group-hover:contrast-100 group-hover:brightness-100 group-hover:scale-105"
+                                    />
+                                    {/* Overlay Gradient for text readability/mood */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60 group-hover:opacity-20 transition-opacity duration-500" />
                                 </div>
 
-                                {/* Content */}
-                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
-                                    {project.title}
-                                </h3>
-
-                                <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
-                                    {project.challenge}
-                                </p>
-
-                                {/* Footer: Result & Link */}
-                                <div className="mt-auto pt-6 border-t border-white/5 flex items-end justify-between">
-                                    <div>
-                                        <div className="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Impact</div>
-                                        <div className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">
-                                            {project.result}
+                                <div className="p-8 flex flex-col flex-1">
+                                    <div className="mb-4 flex items-center justify-between">
+                                        <span className="text-[10px] font-mono uppercase tracking-widest text-[#64748B] bg-slate-100 px-2 py-1 rounded-sm">
+                                            {project.category}
+                                        </span>
+                                    </div>
+                                    <h3 className="text-xl font-bold text-[#0F172A] mb-3 leading-tight group-hover:text-blue-900 transition-colors">
+                                        {project.title}
+                                    </h3>
+                                    <div className="space-y-4 mb-8">
+                                        <div>
+                                            <p className="text-xs uppercase tracking-wider text-[#94A3B8] font-bold mb-1">Challenge</p>
+                                            <p className="text-sm text-[#475569] leading-relaxed">{project.challenge}</p>
+                                        </div>
+                                        <div>
+                                            <p className="text-xs uppercase tracking-wider text-[#94A3B8] font-bold mb-1">Solution</p>
+                                            <p className="text-sm text-[#475569] leading-relaxed">{project.details}</p>
                                         </div>
                                     </div>
-
-                                    <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center text-white/50 group-hover:bg-emerald-500 group-hover:border-emerald-500 group-hover:text-black transition-all duration-300">
-                                        <ArrowUpRight size={16} />
+                                    <div className="mt-auto pt-6 border-t border-[#F1F5F9] flex items-center justify-between">
+                                        <div className="flex flex-col">
+                                            <span className="text-[10px] uppercase tracking-wider text-[#94A3B8] font-bold mb-1">Impact</span>
+                                            <span className="text-xl font-mono font-bold text-[#10B981] tracking-tight">{project.result}</span>
+                                        </div>
+                                        <ArrowUpRight className="w-5 h-5 text-[#CBD5E1] group-hover:text-[#10B981] transition-colors duration-300" />
                                     </div>
                                 </div>
                             </div>
-                        );
-                    })}
+                        ))}
+                    </div>
+
+                    <button
+                        onClick={nextSlide}
+                        className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-[#E2E8F0] bg-white/80 backdrop-blur text-[#0F172A] shadow-sm hover:bg-[#0F172A] hover:text-white transition-all duration-300 rounded-full md:rounded-none"
+                    >
+                        <ChevronRight className="w-6 h-6" />
+                    </button>
                 </div>
             </div>
         </section>
