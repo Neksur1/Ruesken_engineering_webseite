@@ -35,14 +35,28 @@ Die Website erzählt eine visuelle Geschichte der „Reinigung“ und Strukturie
 * **Surface (Cards/Elements):** `#0F1623` (im Dark Mode) / Weiß (im Light Mode).
 * **Text Primary:** `#FFFFFF` (Headlines).
 * **Text Secondary:** `#B0B8C4` (Body).
-* **Highlight / Impact Color:** `#00E091` (Neon-Mintgrün).
+* **Highlight / Impact Color:** `#10B981` (Smaragd-Grün / Emerald).
     * *Regel:* **Nur** für positive Ergebnisse (Zahlen), Call-to-Actions und aktive Zustände nutzen. Niemals als bloße Dekoration oder Hintergrundfläche.
 * **Alert / Problem Hint:** `#FF453A` (Dunkles Rot/Orange, nur als 1px Border mit 20% Opacity).
 
-### Typografie
-* **Headlines & Body:** Sans-Serif (z.B. Inter). Clean, gut lesbar.
-* **Data & Impact Numbers:** Monospace (z.B. JetBrains Mono, Roboto Mono).
-    * *Einsatz:* In Sektion 3 für die Ergebnisse („-50% Zeit“). Wirkt technisch/gemessen.
+### 2.3 Typografie (Verbindliche Spezifikation)
+
+Um die "German Engineering" Ästhetik zu wahren, ist die Einhaltung dieser Hierarchie zwingend.
+
+*   **Font families:**
+    *   **Primary (Story/Text):** `Inter` (Sans-Serif). Klar, sachlich, modern.
+    *   **Secondary (Technical/Data):** `JetBrains Mono` oder `Roboto Mono` (Monospace). Vermittelt Präzision und Messbarkeit.
+
+*   **Schriftgrößen-System (Tailwind-Referenz):**
+    *   **Hero-Headline (H1):** `text-5xl md:text-7xl lg:text-8xl` (Font-black, tracking-tighter).
+    *   **Sektions-Titel (H2):** `text-4xl md:text-6xl` (Font-bold, tracking-tight). *Muss in jeder Hauptsektion (Problem, Solutions, Projects) identisch sein.*
+    *   **Feature-Überschriften (H3):** `text-3xl md:text-4xl` (Font-bold).
+    *   **Einleitungstexte/Subtitles:** `text-lg md:text-xl` (Leading-relaxed).
+    *   **Standard Body-Text:** `text-lg` (für Beschreibungen) / `text-base` (für Detail-Listen).
+    *   **Technische Labels (Mono):** `text-sm` (Uppercase, Tracking-widest [0.3em], Font-bold).
+    *   **Impact-Zahlen (Messwerte):** Min. `text-4xl` (Mono font, Font-black).
+
+*   **Goldene Regel:** Haupt-Headlines (H2) werden niemals kleiner als 4xl (Desktop), um die Kraft der Aussage nicht zu verlieren. Monospace wird nur für Daten, Labels oder technische Fakten genutzt.
 
 ### Grafische Elemente
 * **Grid Lines:** Feine vertikale Linien (1px, 5% Opacity), die über die ganze Seite laufen (wie Leiterbahnen oder CAD-Raster).

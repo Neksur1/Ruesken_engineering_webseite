@@ -4,6 +4,7 @@ import { useLanguage } from "../../context/LanguageContext";
 import { translations } from "../../i18n/translations";
 import EngineeringNavigation from './EngineeringNavigation';
 import ValueProposition from './ValueProposition';
+import Solutions from './Solutions';
 
 const Engineering = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -205,6 +206,7 @@ const Engineering = () => {
                     </div>
                 </main>
                 <ValueProposition />
+                <Solutions />
             </div>
 
             <style>{`

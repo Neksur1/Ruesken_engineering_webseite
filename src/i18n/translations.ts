@@ -66,40 +66,37 @@ export const translations = {
                 ]
             },
             solutions: {
-                header: {
-                    title: "Engineering-Lösungen nach Maß",
-                    subtitle: "Keine Standard-Wrapper. Wir entwickeln tief integrierte Systeme, die Ihre spezifischen Prozesse verstehen und automatisieren."
-                },
-                appliedAI: {
-                    badge: "SECURE LOCAL INTELLIGENCE",
-                    title: "RAG & Agentic AI: Ihr Firmenwissen, operativ automatisiert.",
-                    description: "Standard-LLMs sind für Unternehmen nutzlos, solange sie Ihre Daten nicht kennen. Wir bauen Retrieval-Augmented Generation (RAG) Systeme, die Ihr internes Expertenwissen (PDFs, Datenbanken, Wikis) sicher indexieren. Unsere Agenten \"raten\" nicht – sie suchen Fakten, zitieren Quellen und führen komplexe Aktionen autonom aus.",
-                    features: [
-                        "Autonome Operations: Agenten, die E-Mails nicht nur schreiben, sondern Vorgänge im ERP buchen.",
-                        "Halluzinations-Schutz: Antworten basieren strikt auf Ihrer internen Wissensdatenbank.",
-                        "Datensouveränität: Ihr Modell läuft in Ihrer Infrastruktur (Private Cloud / On-Premise)."
-                    ]
-                },
-                processOrchestration: {
-                    badge: "END-TO-END AUTOMATION",
-                    title: "Deep Integration: Schluss mit manuellem „Copy & Paste“.",
-                    description: "Ihre Mitarbeiter sind keine Schnittstellen. Wir verbinden Ihre isolierten Software-Inseln (ERP, CRM, Legacy-Systeme) zu einem synchronen Ökosystem. Statt fehleranfälliger Handarbeit entwickeln wir Event-basierte Pipelines, die Daten in Echtzeit validieren und übertragen – 24/7, ohne Pausen.",
-                    features: [
-                        "API-First Entwicklung: Direkte Datenbank-Transaktionen statt simulierter Mausklicks.",
-                        "Zero-Error-Logic: Automatische Validierung verhindert, dass falsche Daten ins System gelangen.",
-                        "System-Integration: Nahtlose Anbindung moderner Software-Stacks an Ihre bestehende IT-Infrastruktur."
-                    ]
-                },
-                computerVision: {
-                    badge: "OPTICAL DATA EXTRACTION & ANALYSIS",
-                    title: "Computer Vision & Multimodality: Die analoge Welt wird digital.",
-                    description: "Nicht alle Unternehmensdaten liegen strukturiert in einer Datenbank. Riesige Werte schlummern in analogen Quellen: Alte Baupläne, handschriftliche Wartungsprotokolle oder analoge Zählerstände. Wir nutzen multimodale KI-Modelle, die sehen und verstehen können. Wir verwandeln Pixel in verarbeitbare Datensätze und schließen die Lücke zwischen physischer Realität und digitalem Prozess.",
-                    features: [
-                        "Next-Gen OCR: Auslesen komplexer, unstrukturierter Dokumente und Handschriften (weit über Standard-Texterkennung hinaus).",
-                        "Analog-to-Digital Bridge: Automatisches Ablesen von analogen Messinstrumenten, Zählern oder Displays via Kamera.",
-                        "Visuelle Inventur: KI erkennt Bestand, Zustand oder Anordnung von Objekten im Raum und digitalisiert den Status Quo."
-                    ]
-                }
+                title: "Intelligente Automatisierung",
+                subtitle: "Die technologische Antwort auf die Wachstumsgrenze.",
+                features: [
+                    {
+                        title: "AGENTIC AI",
+                        headline: "Prozesse, die mitdenken, statt nur abzuarbeiten.",
+                        description: "Ersetzen Sie starre If-Then-Skripte durch adaptive KI-Agenten. Unsere Systeme verstehen Kontext, treffen Entscheidungen innerhalb definierter Leitplanken und lösen Ausnahmen autonom.",
+                        comparison: {
+                            from: "Manuelle Bearbeitung",
+                            to: "Smarte Prozesse"
+                        }
+                    },
+                    {
+                        title: "COMPUTER VISION",
+                        headline: "Vom Bild zur strukturierten Datenbank.",
+                        description: "Die Brücke zwischen physischer und digitaler Welt. Wir extrahieren verwertbare Daten aus technischen Zeichnungen, R&I-Fließbildern und Kamerastreams für automatisierte Qualitätskontrolle.",
+                        comparison: {
+                            from: "Technische Zeichnung",
+                            to: "Digitaler Zwilling"
+                        }
+                    },
+                    {
+                        title: "RAG & KNOWLEDGE",
+                        headline: "Sichere Intelligenz für Ihr Unternehmenswissen.",
+                        description: "Befähigen Sie Ihr Team mit sofortigem Zugriff auf ISO-Normen, interne Dokumentation und Projekthistorie. Keine Halluzinationen, nur zitierte, verlässliche Fakten aus Ihrer sicheren Datenbank.",
+                        comparison: {
+                            from: "Datensilos",
+                            to: "Sofortiges Wissen"
+                        }
+                    }
+                ]
             },
             projects: {
                 header: {
@@ -202,40 +199,37 @@ export const translations = {
                 ]
             },
             solutions: {
-                header: {
-                    title: "Tailored Engineering Solutions",
-                    subtitle: "No standard wrappers. We develop deeply integrated systems that understand and automate your specific processes."
-                },
-                appliedAI: {
-                    badge: "APPLIED AI & LLMS",
-                    title: "Your Own Corporate Brain.",
-                    description: "Standard ChatGPT is not enough for complex processes. We integrate Large Language Models deeply into your infrastructure – secure, GDPR-compliant, and trained on your specific company knowledge (RAG).",
-                    features: [
-                        "Autonomous B2B Sales Agents",
-                        "Intelligent Document Analysis (Contracts, Invoices)",
-                        "Internal Knowledge Management Systems"
-                    ]
-                },
-                processOrchestration: {
-                    badge: "PROCESS ORCHESTRATION",
-                    title: "Seamless System Integration.",
-                    description: "We eliminate manual interfaces. Where humans still copy data today, we connect your software islands (ERP, CRM, Mail) into a flowing ecosystem.",
-                    features: [
-                        "API-First Development & Database Connection",
-                        "Zero Error Rate through Validation Logic",
-                        "System Integration: Seamless connection of modern software stacks to your existing IT infrastructure."
-                    ]
-                },
-                computerVision: {
-                    badge: "COMPUTER VISION",
-                    title: "Automated Visual Inspection.",
-                    description: "Algorithms that can see. We automate quality controls and image analyses in real-time – more precise and faster than the human eye.",
-                    features: [
-                        "Real-time Object Detection & Classification",
-                        "Automated Quality Control (QA)",
-                        "Full GDPR Compliance for Image Data"
-                    ]
-                }
+                title: "Intelligent Automation",
+                subtitle: "The technological answer to the scaling limit.",
+                features: [
+                    {
+                        title: "AGENTIC AI",
+                        headline: "Processes that think, not just execute.",
+                        description: "Replace rigid if-then scripts with adaptive AI agents. Our systems understand context, make decisions within defined guardrails, and handle exceptions autonomously.",
+                        comparison: {
+                            from: "Static Scripts",
+                            to: "Adaptive Agents"
+                        }
+                    },
+                    {
+                        title: "COMPUTER VISION",
+                        headline: "Turning visual data into structured insights.",
+                        description: "Bridging the gap between the physical and digital world. We extract actionable data from technical drawings, P&IDs, and camera feeds to automate quality control and data entry.",
+                        comparison: {
+                            from: "Manual Review",
+                            to: "Digital Twin"
+                        }
+                    },
+                    {
+                        title: "RAG & KNOWLEDGE",
+                        headline: "Secure intelligence for your enterprise data.",
+                        description: "Empower your team with instant access to ISO norms, internal documentation, and project history. No hallucinations, just cited, reliable facts from your own secure database.",
+                        comparison: {
+                            from: "Data Silos",
+                            to: "Instant Knowledge"
+                        }
+                    }
+                ]
             },
             projects: {
                 header: {
