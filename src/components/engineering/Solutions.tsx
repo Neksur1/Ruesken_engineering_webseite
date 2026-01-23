@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 
 const AgenticAiSchematic = () => {
     return (
-        <div className="relative w-full h-[320px] bg-white border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-[260px] bg-white border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
             {/* Blueprint Grid */}
             <div className="absolute inset-0 opacity-[0.03]"
                 style={{
@@ -60,7 +60,7 @@ const AgenticAiSchematic = () => {
 
 const ComputerVisionSchematic = () => {
     return (
-        <div className="relative w-full h-[320px] bg-white border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-[260px] bg-white border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
             {/* Crosshairs */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-slate-100" />
@@ -96,7 +96,7 @@ const ComputerVisionSchematic = () => {
 
 const RagSchematic = () => {
     return (
-        <div className="relative w-full h-[320px] bg-white border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
+        <div className="relative w-full h-[260px] bg-white border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
 
             {/* Database Cylinder */}
             <div className="relative z-10 flex items-center gap-12">
@@ -145,7 +145,7 @@ const Solutions = () => {
     ];
 
     return (
-        <section className="relative w-full pb-32 pt-24 bg-[#F1F5F9] text-[#0F172A] border-t border-transparent -mt-1 shadow-[inset_0_20px_20px_-20px_rgba(0,0,0,0.05)]">
+        <section id="solutions" className="relative w-full min-h-screen flex flex-col justify-center pb-20 pt-16 bg-[#F1F5F9] text-[#0F172A] border-t border-transparent -mt-1 shadow-[inset_0_20px_20px_-20px_rgba(0,0,0,0.05)]">
             {/* Continuous Grid Background */}
             <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply z-0"
                 style={{
@@ -158,11 +158,11 @@ const Solutions = () => {
             <div className="relative z-10 w-full px-[10%]">
 
                 {/* Header - Left Aligned & Adjusted Width */}
-                <div className="mb-24 relative max-w-4xl">
-                    <span className="block text-xs font-mono uppercase tracking-widest text-[#64748B] mb-4">
+                <div className="mb-16 relative max-w-3xl">
+                    <span className="block text-xs font-mono uppercase tracking-widest text-[#64748B] mb-3">
                         Solution Stack
                     </span>
-                    <h2 className="text-4xl md:text-6xl font-bold text-[#0F172A] tracking-tight leading-[1.1] mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] tracking-tight leading-[1.1] mb-4">
                         {t.title}
                     </h2>
                     <p className="text-lg md:text-xl text-[#334155] leading-relaxed max-w-2xl">
@@ -170,53 +170,59 @@ const Solutions = () => {
                     </p>
                 </div>
 
+                {/* Central Infrastructure Axis - Engineering Pipeline */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-[4px] bg-slate-200 hidden lg:block z-0 -translate-x-1/2" />
+
                 {/* Features Loop */}
-                <div className="flex flex-col gap-32">
+                <div className="flex flex-col gap-20">
                     {t.features.map((feature, index) => {
                         const isEven = index % 2 === 0;
                         return (
-                            <div key={index} className="w-full bg-white/70 backdrop-blur-md border border-white/50 shadow-[0_30px_70px_-20px_rgba(0,0,0,0.1)] overflow-hidden relative group">
-                                {/* Styleguide Accent: Vertical bar for active/solved state */}
-                                <div className="absolute top-0 left-0 bottom-0 w-[4px] bg-[#10B981] shadow-[4px_0_15px_rgba(16,185,129,0.2)]" />
+                            <div key={index} className="w-full bg-white rounded-sm border border-slate-200 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.15)] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] transition-all duration-500 overflow-visible relative group z-10">
 
-                                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-stretch w-full`}>
+                                {/* Structural Connectors (Visual Link to the Axis) */}
+                                <div className="absolute -top-[16px] left-1/2 -translate-x-1/2 w-[16px] h-[16px] bg-white border-4 border-slate-200 rounded-full hidden lg:block z-20" />
+                                <div className="absolute -bottom-[16px] left-1/2 -translate-x-1/2 w-[16px] h-[16px] bg-white border-4 border-slate-200 rounded-full hidden lg:block z-20" />
+
+                                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-stretch w-full relative z-10 bg-white`}>
 
                                     {/* Text Content - Now part of the unified card */}
-                                    <div className="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
-                                        <div className="flex items-center gap-4 mb-8">
-                                            <span className="text-sm font-mono font-bold text-[#0F172A] border border-[#0F172A] px-3 py-1 scale-110 origin-left">
+                                    <div className="flex-1 p-6 md:p-8 lg:p-10 flex flex-col justify-center">
+                                        <div className="flex items-center gap-3 mb-5">
+                                            <span className="text-xl font-mono font-bold text-slate-300">
                                                 0{index + 1}
                                             </span>
-                                            <span className="text-sm uppercase tracking-[0.3em] text-[#64748B] font-bold">
+                                            <span className="text-sm uppercase tracking-[0.25em] text-[#64748B] font-bold">
                                                 {feature.title}
                                             </span>
                                         </div>
 
-                                        <h3 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-5 leading-tight tracking-tight max-w-xl">
+                                        <h3 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4 leading-tight tracking-tight max-w-xl">
                                             {feature.headline}
                                         </h3>
-                                        <p className="text-lg text-[#334155] mb-8 leading-relaxed max-w-xl">
-                                            {feature.description}
+                                        <p className="text-lg text-[#334155] mb-6 leading-relaxed max-w-xl">
+                                            {feature.description.split('*').map((part, i) =>
+                                                i % 2 === 1 ? <strong key={i} className="font-bold text-[#0F172A]">{part}</strong> : part
+                                            )}
                                         </p>
 
                                         {/* Comparison - Styled purely technical with Styleguide Impacts */}
-                                        <div className="flex flex-col border-l-2 border-[#E2E8F0] pl-6 py-1">
+                                        <div className="flex flex-col border-l-2 border-[#E2E8F0] pl-5 py-1">
                                             <div className="flex items-center gap-2 mb-1">
-                                                <span className="text-[10px] uppercase tracking-wider text-[#94A3B8]">FROM:</span>
-                                                <span className="text-base font-medium text-[#64748B] line-through decoration-slate-400/50">{feature.comparison.from}</span>
+                                                <span className="text-xs uppercase tracking-wider text-slate-400 font-bold">FROM:</span>
+                                                <span className="text-xl font-medium text-slate-300 line-through decoration-slate-300/30">{feature.comparison.from}</span>
                                             </div>
                                             <div className="flex items-center gap-3">
                                                 <span className="text-sm uppercase tracking-wider text-[#10B981] font-bold">TO:</span>
-                                                <span className="text-base font-bold text-[#0F172A] flex items-center gap-2">
+                                                <span className="text-3xl font-bold text-[#10B981] tracking-tight">
                                                     {feature.comparison.to}
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Visual Content - Integrated into the same card */}
-                                    <div className="flex-1 relative flex items-center justify-center p-6 md:p-12 lg:p-16 min-h-[400px]">
+                                    <div className="flex-1 relative flex items-center justify-center p-4 md:p-8 lg:p-10 min-h-[320px]">
                                         <div className="w-full">
                                             {visuals[index]}
                                         </div>

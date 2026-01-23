@@ -124,12 +124,12 @@ const Engineering = () => {
             {/* Main Content Scrollable Wrapper */}
             <div className="relative w-full">
                 {/* Hero Section */}
-                <main className="relative z-10 min-h-screen flex flex-col justify-center px-[10%] pb-32 pt-20 overflow-hidden">
+                <main className="relative z-10 min-h-screen flex flex-col justify-center px-[10%] pb-24 pt-16 overflow-hidden">
                     {/* Matrix Rain Animation - Absolute to Hero Area so it scrolls */}
                     <canvas ref={canvasRef} className="absolute inset-0 z-[1] opacity-40 pointer-events-none" />
 
-                    <div className="relative z-10 max-w-[1200px]">
-                        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-[0.95] mb-10 tracking-[-0.05em] opacity-0 animate-slide-up [animation-delay:0.4s] fill-mode-forwards">
+                    <div className="relative z-10 max-w-[1100px]">
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] mb-8 tracking-[-0.04em] opacity-0 animate-slide-up [animation-delay:0.4s] fill-mode-forwards">
                             {language === 'de' ? (
                                 <>
                                     Vom manuellen Prozess zur{' '}
@@ -147,21 +147,21 @@ const Engineering = () => {
                             )}
                         </h1>
 
-                        <h2 className="text-lg md:text-xl font-medium text-[#E0E0E0] max-w-[700px] mb-14 leading-relaxed opacity-0 animate-slide-up [animation-delay:0.6s] fill-mode-forwards">
+                        <h2 className="text-lg md:text-xl font-medium text-[#E0E0E0] max-w-[600px] mb-10 leading-relaxed opacity-0 animate-slide-up [animation-delay:0.6s] fill-mode-forwards">
                             {t.hero.subtitle}
                         </h2>
 
                         <div className="flex flex-col gap-2 opacity-0 animate-slide-up [animation-delay:0.8s] fill-mode-forwards">
-                            <div className="flex flex-col md:flex-row gap-6">
+                            <div className="flex flex-col md:flex-row gap-4">
                                 <a
                                     href="#"
-                                    className="px-10 py-5 bg-white text-[#030712] border border-white font-bold uppercase tracking-widest text-sm hover:bg-transparent hover:text-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300 text-center"
+                                    className="px-8 py-4 bg-white text-[#030712] border border-white font-bold uppercase tracking-widest text-sm hover:bg-transparent hover:text-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300 text-center"
                                 >
                                     {t.hero.cta.analyze}
                                 </a>
                                 <a
                                     href="#"
-                                    className="px-10 py-5 bg-transparent text-white border border-white/10 backdrop-blur-md font-bold uppercase tracking-widest text-sm hover:border-white hover:text-white hover:bg-white/5 transition-all duration-300 text-center"
+                                    className="px-8 py-4 bg-transparent text-white border border-white/10 backdrop-blur-md font-bold uppercase tracking-widest text-sm hover:border-white hover:text-white hover:bg-white/5 transition-all duration-300 text-center"
                                 >
                                     {t.hero.cta.solutions}
                                 </a>
@@ -174,7 +174,7 @@ const Engineering = () => {
                     </div>
 
                     {/* Fixed Social Proof Banner at Bottom of Hero */}
-                    <div className="absolute bottom-0 left-0 w-full pb-12 opacity-0 animate-slide-up [animation-delay:1.0s] fill-mode-forwards overflow-hidden z-20">
+                    <div className="absolute bottom-0 left-0 w-full pb-8 opacity-0 animate-slide-up [animation-delay:1.0s] fill-mode-forwards overflow-hidden z-20">
                         <p className="text-[10px] uppercase tracking-[0.3em] text-white/20 mb-6 font-mono px-[10%]">
                             {t.hero.socialProof}
                         </p>
