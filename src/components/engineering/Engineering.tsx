@@ -185,17 +185,17 @@ const Engineering = () => {
                                     <React.Fragment key={setIndex}>
                                         {[
                                             { name: 'Python', slug: 'python' },
-                                            { name: 'OpenAI', slug: 'openai' },
+                                            { name: 'OpenAI', slug: 'openai', src: '/assets/openai-logo.png' },
                                             { name: 'Anthropic', slug: 'anthropic' },
                                             { name: 'Gemini', slug: 'googlegemini' },
-                                            { name: 'Azure', slug: 'azure' },
-                                            { name: 'AWS', slug: 'amazonaws' },
+                                            { name: 'Azure', slug: 'azure', src: '/assets/azure-logo.png' },
+                                            { name: 'AWS', slug: 'amazonaws', src: '/assets/aws-logo.png' },
                                             { name: 'TensorFlow', slug: 'tensorflow' },
                                             { name: 'LangChain', slug: 'langchain' }
-                                        ].map((icon) => (
+                                        ].map((icon: any) => (
                                             <div key={`${setIndex}-${icon.slug}`} className="flex items-center justify-center w-[120px]">
                                                 <img
-                                                    src={`https://cdn.simpleicons.org/${icon.slug}/white`}
+                                                    src={icon.src || `https://cdn.simpleicons.org/${icon.slug}/white`}
                                                     alt={icon.name}
                                                     className="h-7 w-auto object-contain opacity-30 hover:opacity-100 transition-opacity duration-300"
                                                     title={icon.name}
