@@ -46,7 +46,7 @@ const ProjectDetail = () => {
             return (
                 <div className="bg-white p-3 border border-slate-200 shadow-lg rounded-sm">
                     <p className="font-mono text-xs text-slate-500 uppercase mb-1">{label}</p>
-                    <p className="font-bold text-[#0F172A]">
+                    <p className="font-bold text-[#0B1120]">
                         {payload[0].value} <span className="text-emerald-500 font-mono text-xs">{payload[0].payload.label}</span>
                     </p>
                 </div>
@@ -56,12 +56,12 @@ const ProjectDetail = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#F8F9FA] font-sans text-[#0F172A]">
+        <div className="min-h-screen bg-[#F8F9FA] font-sans text-[#0B1120]">
             <EngineeringNavigation forceDark={true} />
 
             <article className="">
                 {/* HERO SECTION */}
-                <div className="w-full h-[50vh] relative bg-slate-900 overflow-hidden">
+                <div className="w-full h-[50vh] relative bg-[#0B1120] overflow-hidden">
                     <img
                         src={image}
                         alt={project.title}
@@ -73,10 +73,10 @@ const ProjectDetail = () => {
                             <ArrowLeft className="w-4 h-4 mr-2" />
                             Back to Overview
                         </Link>
-                        <span className="block text-xs font-mono uppercase tracking-widest text-[#10B981] mb-2 bg-[#0F172A]/80 w-fit px-2 py-1 rounded-sm backdrop-blur-sm">
+                        <span className="block text-xs font-mono uppercase tracking-widest text-[#10B981] mb-2 bg-[#0B1120]/80 w-fit px-2 py-1 rounded-sm backdrop-blur-sm">
                             {project.category}
                         </span>
-                        <h1 className="text-4xl md:text-6xl font-bold text-[#0F172A] md:text-white tracking-tight leading-[1.1] max-w-4xl shadow-black drop-shadow-sm">
+                        <h1 className="text-4xl md:text-6xl font-bold text-[#0B1120] md:text-white tracking-tight leading-[1.1] max-w-4xl shadow-black drop-shadow-sm">
                             {project.title}
                         </h1>
                     </div>
@@ -155,8 +155,8 @@ const ProjectDetail = () => {
                         </div>
 
                         <div className="bg-slate-100 p-6 border border-slate-200 text-center">
-                            <h4 className="font-bold text-slate-900 mb-2">{t.labels?.ready || "Ready to achieve similar results?"}</h4>
-                            <a href="#contact" className="inline-block mt-2 bg-[#0F172A] text-white px-6 py-3 rounded-sm font-medium hover:bg-slate-800 transition-colors w-full">
+                            <h4 className="font-bold text-[#0B1120] mb-2">{t.labels?.ready || "Ready to achieve similar results?"}</h4>
+                            <a href="#contact" className="inline-block mt-2 bg-[#0B1120] text-white px-6 py-3 rounded-sm font-medium hover:bg-slate-800 transition-colors w-full">
                                 {t.labels?.bookCall || "Book Discovery Call"}
                             </a>
                         </div>

@@ -2,93 +2,55 @@ import React from 'react';
 import { useLanguage } from "../../context/LanguageContext";
 import { translations } from "../../i18n/translations";
 import { ArrowRight } from "lucide-react";
+import AgenticAnimation from "./visuals/AgenticAnimation";
 
 // --- VISUAL SCHEMATICS (Engineering Style) ---
 
-const AgenticAiSchematic = () => {
+// AgenticAiComparison replaced by AgenticAnimation
+
+
+const ComparisonVisual = () => {
     return (
-        <div className="relative w-full h-[260px] bg-white border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
-            {/* Blueprint Grid */}
-            <div className="absolute inset-0 opacity-[0.03]"
-                style={{
-                    backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
-                    backgroundSize: '20px 20px'
-                }}
-            />
-
-            {/* Logic Tree Diagram */}
-            <div className="relative z-10 flex flex-col items-center gap-8 w-full max-w-[300px]">
-                {/* Input Node */}
-                <div className="w-full flex justify-center">
-                    <div className="px-6 py-3 border border-slate-900 bg-slate-50 text-[10px] font-mono tracking-widest text-slate-900 uppercase">
-                        Input: Trigger
-                    </div>
-                </div>
-
-                {/* Vertical Line */}
-                <div className="h-8 w-[1px] bg-slate-300" />
-
-                {/* Decision Node (Diamond Shape simulation via Box) */}
-                <div className="relative flex items-center justify-center w-32 h-16 border border-slate-900 bg-white">
-                    <span className="text-[10px] font-mono text-slate-900 font-bold">ANALYSIS</span>
-                </div>
-
-                {/* Branches */}
-                <div className="relative flex w-full justify-between px-4">
-                    {/* Branch Lines */}
-                    <div className="absolute top-0 left-1/2 -mt-4 w-[1px] h-4 bg-slate-300" /> {/* Top connector */}
-                    <div className="absolute top-0 left-10 right-10 h-[1px] bg-slate-300" /> {/* Horizontal */}
-                    <div className="absolute top-0 left-10 h-4 w-[1px] bg-slate-300" /> {/* Left Drop */}
-                    <div className="absolute top-0 right-10 h-4 w-[1px] bg-slate-300" /> {/* Right Drop */}
-
-                    <div className="mt-4 px-4 py-2 border border-slate-300 bg-white text-[10px] text-slate-500 font-mono">
-                        Path A
-                    </div>
-                    <div className="mt-4 px-4 py-2 border border-slate-900 bg-slate-900 text-[10px] text-white font-mono shadow-md">
-                        Action B
+        <div className="relative w-full h-[260px] bg-white border border-slate-200 shadow-sm flex overflow-hidden group">
+            {/* Problem Side (Left) */}
+            <div className="relative w-1/2 h-full border-r border-slate-200 overflow-hidden">
+                <div className="absolute inset-0 bg-slate-900/10 z-10 mix-blend-multiply" />
+                <img
+                    src="/assets/solution-stack/problem-manual.png"
+                    alt="Manual Process"
+                    className="w-full h-full object-cover grayscale contrast-125 scale-110"
+                />
+                <div className="absolute top-4 left-4 z-20">
+                    <div className="text-[10px] font-mono uppercase tracking-widest text-slate-500 bg-white/90 px-2 py-1 backdrop-blur-sm border border-slate-200 shadow-sm">
+                        Manual Input
                     </div>
                 </div>
             </div>
+
+            {/* Solution Side (Right) */}
+            <div className="relative w-1/2 h-full overflow-hidden">
+                <img
+                    src="/assets/solution-stack/solution-interface.png"
+                    alt="Automated Solution"
+                    className="w-full h-full object-cover"
+                />
+
+                {/* Success Toast */}
+                <div className="absolute bottom-8 right-6 bg-white border border-emerald-500/20 shadow-[0_8px_16px_-4px_rgba(16,185,129,0.2)] p-3 rounded-sm flex items-center gap-3 animate-in slide-in-from-bottom-2 fade-in duration-700 delay-500 max-w-[180px]">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                    <div className="flex flex-col">
+                        <span className="text-[10px] font-bold text-slate-900 leading-tight">Export Complete</span>
+                        <span className="text-[9px] font-mono text-slate-500 leading-tight">142 dims in 0.3s</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Center Divisor */}
+            <div className="absolute inset-y-0 left-1/2 w-[1px] bg-white/50 z-20"></div>
 
             {/* Label */}
-            <div className="absolute bottom-4 right-4 text-[9px] font-mono text-slate-400">
-                FIG 1.0: ADAPTIVE LOGIC
-            </div>
-        </div>
-    );
-};
-
-const ComputerVisionSchematic = () => {
-    return (
-        <div className="relative w-full h-[260px] bg-white border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
-            {/* Crosshairs */}
-            <div className="absolute inset-0">
-                <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-slate-100" />
-                <div className="absolute left-0 right-0 top-1/2 h-[1px] bg-slate-100" />
-            </div>
-
-            {/* Object Geometry (simulating a technical drawing) */}
-            <div className="relative z-10 border border-slate-900 w-40 h-40 rounded-full flex items-center justify-center">
-                <div className="w-24 h-24 border border-dashed border-slate-300 rounded-full" />
-                <div className="w-2 h-2 bg-slate-900 rounded-full" />
-
-                {/* Measurements */}
-                <div className="absolute -right-4 top-1/2 w-4 h-[1px] bg-slate-900" />
-                <div className="absolute right-[-40px] top-[45%] text-[9px] font-mono text-slate-900">Ø 120mm</div>
-            </div>
-
-            {/* Bounding Box Overlay */}
-            <div className="absolute z-20 w-48 h-48 border border-slate-400 opacity-50">
-                <div className="absolute -top-2 -left-[1px] w-2 h-[1px] bg-slate-900" />
-                <div className="absolute -top-[1px] -left-2 h-2 w-[1px] bg-slate-900" />
-                <div className="absolute top-2 left-2 text-[9px] font-mono bg-slate-900 text-white px-1">
-                    OBJ_DETECT
-                </div>
-            </div>
-
-            {/* Label */}
-            <div className="absolute bottom-4 right-4 text-[9px] font-mono text-slate-400">
-                FIG 2.0: GEOMETRY EXTRACTION
+            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-500 bg-white/95 px-3 py-1 rounded-full border border-slate-200 shadow-sm z-20 backdrop-blur-md">
+                FIG 2.0: MANUAL VS AUTOMATED
             </div>
         </div>
     );
@@ -114,13 +76,13 @@ const RagSchematic = () => {
 
                 {/* Indexing Stack */}
                 <div className="relative">
-                    <div className="w-24 h-6 border border-slate-900 bg-slate-50 rounded-[100%] absolute -top-3 z-20" />
-                    <div className="w-24 h-24 border-x border-b border-slate-900 bg-white rounded-b-xl flex flex-col items-center justify-center gap-1 z-10 relative">
+                    <div className="w-24 h-6 border border-[#0B1120] bg-slate-50 rounded-[100%] absolute -top-3 z-20" />
+                    <div className="w-24 h-24 border-x border-b border-[#0B1120] bg-white rounded-b-xl flex flex-col items-center justify-center gap-1 z-10 relative">
                         <div className="w-16 h-[1px] bg-slate-100" />
                         <div className="w-16 h-[1px] bg-slate-100" />
                         <div className="w-16 h-[1px] bg-slate-100" />
 
-                        <div className="mt-2 text-[9px] font-mono font-bold tracking-widest text-slate-900">VECTOR</div>
+                        <div className="mt-2 text-[9px] font-mono font-bold tracking-widest text-[#0B1120]">VECTOR</div>
                     </div>
                 </div>
             </div>
@@ -139,13 +101,13 @@ const Solutions = () => {
     const t = translations[language].engineering.solutions;
 
     const visuals = [
-        <AgenticAiSchematic />,
-        <ComputerVisionSchematic />,
+        null, // Index 0 handled separately
+        <ComparisonVisual />,
         <RagSchematic />
     ];
 
     return (
-        <section id="solutions" className="relative w-full min-h-screen flex flex-col justify-center pb-20 pt-16 bg-[#F1F5F9] text-[#0F172A] border-t border-transparent -mt-1 shadow-[inset_0_20px_20px_-20px_rgba(0,0,0,0.05)]">
+        <section id="solutions" className="relative w-full min-h-screen flex flex-col justify-center pb-20 pt-16 bg-[#F1F5F9] text-[#0B1120] border-t border-transparent -mt-1 shadow-[inset_0_20px_20px_-20px_rgba(0,0,0,0.05)]">
             {/* Continuous Grid Background */}
             <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply z-0"
                 style={{
@@ -162,7 +124,7 @@ const Solutions = () => {
                     <span className="block text-xs font-mono uppercase tracking-widest text-[#64748B] mb-3">
                         Solution Stack
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] tracking-tight leading-[1.1] mb-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#0B1120] tracking-tight leading-[1.1] mb-4">
                         {t.title}
                     </h2>
                     <p className="text-lg md:text-xl text-[#334155] leading-relaxed max-w-2xl">
@@ -197,12 +159,12 @@ const Solutions = () => {
                                             </span>
                                         </div>
 
-                                        <h3 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4 leading-tight tracking-tight max-w-xl">
+                                        <h3 className="text-3xl md:text-4xl font-bold text-[#0B1120] mb-4 leading-tight tracking-tight max-w-xl">
                                             {feature.headline}
                                         </h3>
                                         <p className="text-lg text-[#334155] mb-6 leading-relaxed max-w-xl">
                                             {feature.description.split('*').map((part, i) =>
-                                                i % 2 === 1 ? <strong key={i} className="font-bold text-[#0F172A]">{part}</strong> : part
+                                                i % 2 === 1 ? <strong key={i} className="font-bold text-[#0B1120]">{part}</strong> : part
                                             )}
                                         </p>
 
@@ -224,7 +186,9 @@ const Solutions = () => {
                                     {/* Visual Content - Integrated into the same card */}
                                     <div className="flex-1 relative flex items-center justify-center p-4 md:p-8 lg:p-10 min-h-[320px]">
                                         <div className="w-full">
-                                            {visuals[index]}
+                                            {index === 0 ? (
+                                                <AgenticAnimation />
+                                            ) : visuals[index]}
                                         </div>
                                     </div>
 

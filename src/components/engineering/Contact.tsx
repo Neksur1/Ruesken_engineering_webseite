@@ -90,7 +90,7 @@ const Contact = () => {
 
                         <Button
                             type="submit"
-                            className="w-full h-11 bg-white text-[#030712] hover:bg-[#10B981] hover:text-white font-bold uppercase tracking-widest text-sm rounded-none transition-all duration-300 mt-3"
+                            className="w-full h-11 bg-white text-[#0B1120] hover:bg-[#10B981] hover:text-white font-bold uppercase tracking-widest text-sm rounded-none transition-all duration-300 mt-3"
                         >
                             Nachricht senden
                         </Button>

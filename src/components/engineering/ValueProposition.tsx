@@ -9,7 +9,7 @@ const ValueProposition = () => {
 
 
     return (
-        <section className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-[#F8F9FA] text-[#0F172A] border-t border-[#E2E8F0] overflow-hidden">
+        <section className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-[#E6EAF0] text-[#0B1120] border-t border-[#E2E8F0] overflow-hidden">
             {/* Technical Grid Background */}
             <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply z-0"
                 style={{
@@ -26,7 +26,7 @@ const ValueProposition = () => {
                     <span className="block text-xs font-mono uppercase tracking-widest text-slate-600 mb-3">
                         Problem Statement
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] tracking-tight leading-[1.1]">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#0B1120] tracking-tight leading-[1.1]">
                         {t.title}
                     </h2>
                 </div>
@@ -36,7 +36,7 @@ const ValueProposition = () => {
                         <div key={index} className="flex flex-col group relative p-7 min-h-[360px] bg-white rounded-sm border border-slate-200 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.15)] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-1">
 
                             {/* Top Marker */}
-                            <div className="w-8 h-[2px] bg-[#0F172A] mb-6 z-10" />
+                            <div className="w-8 h-[2px] bg-[#0B1120] mb-6 z-10" />
 
                             {/* Category Label */}
                             <span className="text-[10px] uppercase tracking-[0.25em] text-slate-600 mb-3 font-bold z-10">
@@ -44,7 +44,7 @@ const ValueProposition = () => {
                             </span>
 
                             {/* The Pain Description - Larger & Immersive */}
-                            <p className="text-[#0F172A] text-2xl md:text-3xl font-bold leading-[1.25] tracking-tight z-10 mb-auto hyphens-auto">
+                            <p className="text-[#0B1120] text-2xl md:text-3xl font-bold leading-[1.25] tracking-tight z-10 mb-auto hyphens-auto">
                                 {card.description}
                             </p>
 

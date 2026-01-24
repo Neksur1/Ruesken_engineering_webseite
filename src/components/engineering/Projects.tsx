@@ -44,7 +44,7 @@ const Projects = () => {
     const visibleItems = getVisibleItems();
 
     return (
-        <section id="projects" className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-[#F8F9FA] text-[#0F172A] border-t border-[#E2E8F0]">
+        <section id="projects" className="relative w-full min-h-screen flex flex-col justify-center py-20 bg-[#E6EAF0] text-[#0B1120] border-t border-[#E2E8F0]">
             {/* Background Pattern */}
             <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply z-0"
                 style={{ backgroundImage: 'linear-gradient(#CBD5E1 1px, transparent 1px), linear-gradient(90deg, #CBD5E1 1px, transparent 1px)', backgroundSize: '40px 40px' }}
@@ -58,7 +58,7 @@ const Projects = () => {
                             Success Stories
                         </span>
                         <a href="/projects" className="block hover:opacity-80 transition-opacity">
-                            <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] tracking-tight leading-[1.1] mb-3">
+                            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1120] tracking-tight leading-[1.1] mb-3">
                                 {t.header.title}
                             </h2>
                         </a>
@@ -74,7 +74,7 @@ const Projects = () => {
                     {/* Navigation Buttons */}
                     <button
                         onClick={prevSlide}
-                        className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-[#E2E8F0] bg-white/80 backdrop-blur text-[#0F172A] shadow-sm hover:bg-[#0F172A] hover:text-white transition-all duration-300 rounded-full md:rounded-none"
+                        className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-[#E2E8F0] bg-white/80 backdrop-blur text-[#0B1120] shadow-sm hover:bg-[#0B1120] hover:text-white transition-all duration-300 rounded-full md:rounded-none"
                     >
                         <ChevronLeft className="w-6 h-6" />
                     </button>
@@ -104,7 +104,7 @@ const Projects = () => {
                                             {project.category}
                                         </span>
                                     </div>
-                                    <h3 className="text-xl font-bold text-[#0F172A] mb-2 leading-tight group-hover:text-blue-900 transition-colors">
+                                    <h3 className="text-xl font-bold text-[#0B1120] mb-2 leading-tight group-hover:text-blue-900 transition-colors">
                                         {project.title}
                                     </h3>
                                     <div className="space-y-3 mb-6">
@@ -131,7 +131,7 @@ const Projects = () => {
 
                     <button
                         onClick={nextSlide}
-                        className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-[#E2E8F0] bg-white/80 backdrop-blur text-[#0F172A] shadow-sm hover:bg-[#0F172A] hover:text-white transition-all duration-300 rounded-full md:rounded-none"
+                        className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-[#E2E8F0] bg-white/80 backdrop-blur text-[#0B1120] shadow-sm hover:bg-[#0B1120] hover:text-white transition-all duration-300 rounded-full md:rounded-none"
                     >
                         <ChevronRight className="w-6 h-6" />
                     </button>

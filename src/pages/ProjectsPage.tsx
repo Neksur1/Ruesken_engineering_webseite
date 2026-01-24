@@ -31,7 +31,7 @@ const ProjectsPage = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-[#F8F9FA] font-sans text-[#0F172A]">
+        <div className="min-h-screen bg-[#F8F9FA] font-sans text-[#0B1120]">
             <EngineeringNavigation forceDark={true} />
 
             <section className="relative w-full pt-40 pb-32">
@@ -46,7 +46,7 @@ const ProjectsPage = () => {
                         <span className="block text-xs font-mono uppercase tracking-widest text-[#64748B] mb-4">
                             All Success Stories
                         </span>
-                        <h2 className="text-4xl md:text-6xl font-bold text-[#0F172A] tracking-tight leading-[1.1] mb-4">
+                        <h2 className="text-4xl md:text-6xl font-bold text-[#0B1120] tracking-tight leading-[1.1] mb-4">
                             {t.header.title}
                         </h2>
                         <p className="text-lg text-[#334155] leading-relaxed max-w-xl">
@@ -79,7 +79,7 @@ const ProjectsPage = () => {
                                             {project.category}
                                         </span>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-[#0F172A] mb-3 leading-tight group-hover:text-blue-900 transition-colors">
+                                    <h3 className="text-2xl font-bold text-[#0B1120] mb-3 leading-tight group-hover:text-blue-900 transition-colors">
                                         {project.title}
                                     </h3>
                                     <div className="space-y-4 mb-8">

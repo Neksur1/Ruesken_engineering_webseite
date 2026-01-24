@@ -97,7 +97,7 @@ const EngineeringNavigation = ({ forceDark = false }: EngineeringNavigationProps
                             const contactSection = document.getElementById('contact');
                             if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        className="px-6 py-2 bg-white text-[#030712] text-sm font-bold tracking-widest hover:bg-white/90 transition-all duration-300"
+                        className="px-6 py-2 bg-white text-[#0B1120] text-sm font-bold tracking-widest hover:bg-white/90 transition-all duration-300"
                     >
                         {t.contact.toUpperCase()}
                     </a>
@@ -159,7 +159,7 @@ const EngineeringNavigation = ({ forceDark = false }: EngineeringNavigationProps
                     <div className="h-[1px] w-full bg-white/10 my-2" />
                     <a
                         href="#"
-                        className="w-fit px-6 py-3 bg-white text-[#030712] text-sm font-bold tracking-widest"
+                        className="w-fit px-6 py-3 bg-white text-[#0B1120] text-sm font-bold tracking-widest"
                         onClick={(e) => {
                             e.preventDefault();
                             setMobileMenuOpen(false);

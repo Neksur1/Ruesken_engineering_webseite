@@ -155,7 +155,7 @@ const Engineering = () => {
                             <div className="flex flex-col md:flex-row gap-4">
                                 <a
                                     href="#"
-                                    className="px-8 py-4 bg-white text-[#030712] border border-white font-bold uppercase tracking-widest text-sm hover:bg-transparent hover:text-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300 text-center"
+                                    className="px-8 py-4 bg-white text-[#0B1120] border border-white font-bold uppercase tracking-widest text-sm hover:bg-transparent hover:text-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-all duration-300 text-center"
                                 >
                                     {t.hero.cta.analyze}
                                 </a>
@@ -174,7 +174,10 @@ const Engineering = () => {
                     </div>
 
                     {/* Fixed Social Proof Banner at Bottom of Hero */}
-                    <div className="absolute bottom-0 left-0 w-full pb-8 opacity-0 animate-slide-up [animation-delay:1.0s] fill-mode-forwards overflow-hidden z-20">
+                    <div
+                        className="absolute bottom-0 left-0 w-full pb-8 opacity-0 animate-slide-up overflow-hidden z-20"
+                        style={{ animationDelay: '1s' }}
+                    >
                         <p className="text-[10px] uppercase tracking-[0.3em] text-white/20 mb-6 font-mono px-[10%]">
                             {t.hero.socialProof}
                         </p>
@@ -185,11 +188,11 @@ const Engineering = () => {
                                     <React.Fragment key={setIndex}>
                                         {[
                                             { name: 'Python', slug: 'python' },
-                                            { name: 'OpenAI', slug: 'openai', src: '/assets/openai-logo.png' },
+                                            { name: 'OpenAI', slug: 'openai', src: '/assets/openai-white.png' },
                                             { name: 'Anthropic', slug: 'anthropic' },
                                             { name: 'Gemini', slug: 'googlegemini' },
                                             { name: 'Azure', slug: 'azure', src: '/assets/azure-logo.png' },
-                                            { name: 'AWS', slug: 'amazonaws', src: '/assets/aws-logo.png' },
+                                            { name: 'AWS', slug: 'amazonaws', src: '/assets/aws-white.png' },
                                             { name: 'TensorFlow', slug: 'tensorflow' },
                                             { name: 'LangChain', slug: 'langchain' }
                                         ].map((icon: any) => (
