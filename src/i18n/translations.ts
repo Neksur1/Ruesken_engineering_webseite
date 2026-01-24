@@ -84,16 +84,16 @@ export const translations = {
                         description: "Die Brücke zwischen physischer und digitaler Welt. Wir extrahieren verwertbare Daten aus *technischen Zeichnungen*, R&I-Fließbildern und Kamerastreams für automatisierte *Qualitätskontrolle*.",
                         comparison: {
                             from: "Technische Zeichnung",
-                            to: "Digitaler Zwilling"
+                            to: "Parametrisches 3D-Modell"
                         }
                     },
                     {
                         title: "RAG & KNOWLEDGE",
-                        headline: "Sichere Intelligenz für Ihr Unternehmenswissen.",
-                        description: "Befähigen Sie Ihr Team mit sofortigem Zugriff auf *ISO-Normen*, interne Dokumentation und Projekthistorie. Keine Halluzinationen, nur zitierte, *verlässliche Fakten* aus Ihrer sicheren Datenbank.",
+                        headline: "Wissen, das agiert, statt nur zu existieren.",
+                        description: "Wissen sollte den *Arbeitsalltag* steuern. Wir integrieren *KI-Agenten* so, dass sie Mitarbeiter entlasten und *autonome Entscheidungen* auf Basis Ihrer Daten treffen.",
                         comparison: {
-                            from: "Datensilos",
-                            to: "Sofortiges Wissen"
+                            from: "Passive Datenablage",
+                            to: "Autonome Expertise"
                         }
                     }
                 ]
@@ -292,7 +292,7 @@ export const translations = {
                         description: "Bridging the gap between the physical and digital world. We extract actionable data from technical drawings, P&IDs, and camera feeds to automate quality control and data entry.",
                         comparison: {
                             from: "Manual Review",
-                            to: "Digital Twin"
+                            to: "Parametric 3D Model"
                         }
                     },
                     {

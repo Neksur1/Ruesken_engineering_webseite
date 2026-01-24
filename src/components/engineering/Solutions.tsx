@@ -1,99 +1,14 @@
 import React from 'react';
 import { useLanguage } from "../../context/LanguageContext";
 import { translations } from "../../i18n/translations";
-import { ArrowRight } from "lucide-react";
 import AgenticAnimation from "./visuals/AgenticAnimation";
+import ComputerVisionAnimation from "./visuals/ComputerVisionAnimation";
+import RagAnimation from "./visuals/RagAnimation";
 
 // --- VISUAL SCHEMATICS (Engineering Style) ---
 
 // AgenticAiComparison replaced by AgenticAnimation
-
-
-const ComparisonVisual = () => {
-    return (
-        <div className="relative w-full h-[260px] bg-white border border-slate-200 shadow-sm flex overflow-hidden group">
-            {/* Problem Side (Left) */}
-            <div className="relative w-1/2 h-full border-r border-slate-200 overflow-hidden">
-                <div className="absolute inset-0 bg-slate-900/10 z-10 mix-blend-multiply" />
-                <img
-                    src="/assets/solution-stack/problem-manual.png"
-                    alt="Manual Process"
-                    className="w-full h-full object-cover grayscale contrast-125 scale-110"
-                />
-                <div className="absolute top-4 left-4 z-20">
-                    <div className="text-[10px] font-mono uppercase tracking-widest text-slate-500 bg-white/90 px-2 py-1 backdrop-blur-sm border border-slate-200 shadow-sm">
-                        Manual Input
-                    </div>
-                </div>
-            </div>
-
-            {/* Solution Side (Right) */}
-            <div className="relative w-1/2 h-full overflow-hidden">
-                <img
-                    src="/assets/solution-stack/solution-interface.png"
-                    alt="Automated Solution"
-                    className="w-full h-full object-cover"
-                />
-
-                {/* Success Toast */}
-                <div className="absolute bottom-8 right-6 bg-white border border-emerald-500/20 shadow-[0_8px_16px_-4px_rgba(16,185,129,0.2)] p-3 rounded-sm flex items-center gap-3 animate-in slide-in-from-bottom-2 fade-in duration-700 delay-500 max-w-[180px]">
-                    <div className="w-2 h-2 rounded-full bg-emerald-500 shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
-                    <div className="flex flex-col">
-                        <span className="text-[10px] font-bold text-slate-900 leading-tight">Export Complete</span>
-                        <span className="text-[9px] font-mono text-slate-500 leading-tight">142 dims in 0.3s</span>
-                    </div>
-                </div>
-            </div>
-
-            {/* Center Divisor */}
-            <div className="absolute inset-y-0 left-1/2 w-[1px] bg-white/50 z-20"></div>
-
-            {/* Label */}
-            <div className="absolute bottom-3 left-1/2 -translate-x-1/2 text-[9px] font-mono text-slate-500 bg-white/95 px-3 py-1 rounded-full border border-slate-200 shadow-sm z-20 backdrop-blur-md">
-                FIG 2.0: MANUAL VS AUTOMATED
-            </div>
-        </div>
-    );
-};
-
-const RagSchematic = () => {
-    return (
-        <div className="relative w-full h-[260px] bg-white border border-slate-200 shadow-sm flex items-center justify-center overflow-hidden">
-
-            {/* Database Cylinder */}
-            <div className="relative z-10 flex items-center gap-12">
-
-                {/* Source Doc */}
-                <div className="w-24 h-32 border border-slate-300 bg-white p-2 flex flex-col gap-2 relative">
-                    <div className="w-full h-1 bg-slate-200" />
-                    <div className="w-full h-1 bg-slate-200" />
-                    <div className="w-1/2 h-1 bg-slate-200" />
-                    <div className="absolute -top-2 -right-2 text-[8px] font-mono bg-slate-100 border border-slate-300 px-1 text-slate-500">SRC</div>
-                </div>
-
-                {/* Arrow */}
-                <ArrowRight className="text-slate-300 w-4 h-4" />
-
-                {/* Indexing Stack */}
-                <div className="relative">
-                    <div className="w-24 h-6 border border-[#0B1120] bg-slate-50 rounded-[100%] absolute -top-3 z-20" />
-                    <div className="w-24 h-24 border-x border-b border-[#0B1120] bg-white rounded-b-xl flex flex-col items-center justify-center gap-1 z-10 relative">
-                        <div className="w-16 h-[1px] bg-slate-100" />
-                        <div className="w-16 h-[1px] bg-slate-100" />
-                        <div className="w-16 h-[1px] bg-slate-100" />
-
-                        <div className="mt-2 text-[9px] font-mono font-bold tracking-widest text-[#0B1120]">VECTOR</div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Label */}
-            <div className="absolute bottom-4 right-4 text-[9px] font-mono text-slate-400">
-                FIG 3.0: VECTORIZATION
-            </div>
-        </div>
-    );
-};
+// RagSchematic replaced by RagAnimation
 
 
 const Solutions = () => {
@@ -102,8 +17,8 @@ const Solutions = () => {
 
     const visuals = [
         null, // Index 0 handled separately
-        <ComparisonVisual />,
-        <RagSchematic />
+        <ComputerVisionAnimation />,
+        <RagAnimation />
     ];
 
     return (
