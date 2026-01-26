@@ -43,7 +43,7 @@ const ThreeDModel = () => {
         dirLight.position.set(100, 200, 100);
         scene.add(dirLight);
 
-        const backLight = new THREE.DirectionalLight(0x6366f1, 0.4); // Indigo Backlight
+        const backLight = new THREE.DirectionalLight(0x0b1120, 0.4); // Dark Blue Backlight
         backLight.position.set(-100, -100, -50);
         scene.add(backLight);
 
@@ -127,7 +127,7 @@ const StatusBadge = ({ status }: { status: string }) => {
     const config: Record<string, { color: string; text: string }> = {
         idle: { color: 'bg-slate-100 text-slate-500', text: 'Standby' },
         scanning: { color: 'bg-blue-50 text-blue-600 border-blue-200', text: 'Scanning...' },
-        processing: { color: 'bg-purple-50 text-purple-600 border-purple-200', text: 'Processing...' },
+        processing: { color: 'bg-slate-50 text-[#0B1120] border-slate-200', text: 'Processing...' },
         complete: { color: 'bg-emerald-50 text-emerald-600 border-emerald-200', text: '3D Ready' },
     };
 
@@ -185,7 +185,7 @@ export default function ComputerVisionAnimation() {
                             </div>
                             <div className="h-4 w-px bg-slate-200 mx-2"></div>
                             <span className="text-xs md:text-sm font-semibold text-slate-600 flex items-center gap-2">
-                                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-indigo-500"></div>
+                                <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#0B1120]"></div>
                                 Vector-to-Mesh Engine
                             </span>
                         </div>
@@ -238,12 +238,12 @@ export default function ComputerVisionAnimation() {
                                                 <motion.g>
                                                     <motion.rect
                                                         x="35" y="35" width="130" height="130"
-                                                        fill="none" stroke="#6366f1" strokeWidth="2" strokeDasharray="5,5"
+                                                        fill="none" stroke="#0B1120" strokeWidth="2" strokeDasharray="5,5"
                                                         initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0] }} transition={{ repeat: Infinity, duration: 1 }}
                                                     />
                                                     <motion.line
                                                         x1="0" y1="0" x2="200" y2="0"
-                                                        stroke="#6366f1" strokeWidth="2"
+                                                        stroke="#0B1120" strokeWidth="2"
                                                         initial={{ y1: 0, y2: 0, opacity: 0 }}
                                                         animate={{ y1: [0, 200], y2: [0, 200], opacity: [0, 1, 1, 0] }}
                                                         transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -269,23 +269,23 @@ export default function ComputerVisionAnimation() {
                                             {/* Isometric Wireframe construction */}
                                             <motion.path
                                                 d="M 50 80 L 150 80 L 150 120 L 50 120 Z"
-                                                fill="none" stroke="#6366f1" strokeWidth="1"
+                                                fill="none" stroke="#0B1120" strokeWidth="1"
                                                 initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.8 }}
                                             />
                                             <motion.path
                                                 d="M 50 120 L 50 150 L 150 150 L 150 120"
-                                                fill="none" stroke="#6366f1" strokeWidth="1"
+                                                fill="none" stroke="#0B1120" strokeWidth="1"
                                                 initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 0.8, delay: 0.2 }}
                                             />
                                             {/* Connecting Nodes */}
                                             {[...Array(4)].map((_, i) => (
                                                 <motion.circle
-                                                    key={i} cx={50 + (i % 2) * 100} cy={80 + Math.floor(i / 2) * 40} r="2" fill="#6366f1"
+                                                    key={i} cx={50 + (i % 2) * 100} cy={80 + Math.floor(i / 2) * 40} r="2" fill="#0B1120"
                                                     initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.5 + i * 0.1 }}
                                                 />
                                             ))}
                                         </svg>
-                                        <div className="absolute bottom-2 bg-indigo-600 text-white text-[8px] md:text-[9px] px-2 py-0.5 rounded font-mono">
+                                        <div className="absolute bottom-2 bg-[#0B1120] text-white text-[8px] md:text-[9px] px-2 py-0.5 rounded font-mono">
                                             Generating...
                                         </div>
                                     </motion.div>
@@ -333,7 +333,7 @@ export default function ComputerVisionAnimation() {
                     <div className="grid grid-cols-2 divide-x divide-slate-100 border-t border-slate-100 bg-slate-50/50">
                         <div className="p-3 md:p-4 flex items-center justify-center gap-2 md:gap-3">
                             <div className="p-1.5 md:p-2 bg-white rounded-lg border border-slate-200 shadow-sm">
-                                <Box className="w-3 h-3 md:w-4 md:h-4 text-indigo-600" />
+                                <Box className="w-3 h-3 md:w-4 md:h-4 text-[#0B1120]" />
                             </div>
                             <div>
                                 <div className="text-[8px] md:text-[10px] font-semibold text-slate-400 uppercase tracking-wider">View</div>
