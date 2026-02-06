@@ -3,7 +3,7 @@ import { useLanguage } from "../context/LanguageContext";
 import EngineeringNavigation from '../components/engineering/EngineeringNavigation';
 import Footer from '../components/engineering/Footer';
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, Code, Globe, UserCheck, Users } from 'lucide-react';
+import { Brain, Code, Globe, UserCheck, Users } from 'lucide-react';
 
 const Academy = () => {
     const { language } = useLanguage();
@@ -118,10 +118,7 @@ const Academy = () => {
                                 {course.description}
                             </p>
 
-                            <div className="flex items-center text-sm font-bold text-white/40 group-hover:text-white transition-colors">
-                                {language === 'de' ? "Mehr erfahren" : "Learn more"}
-                                <ArrowRight className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                            </div>
+
                         </motion.div>
                     ))}
                 </div>
