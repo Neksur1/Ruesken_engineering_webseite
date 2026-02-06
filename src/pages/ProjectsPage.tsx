@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../i18n/translations";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+
 import EngineeringNavigation from "../components/engineering/EngineeringNavigation";
 import Footer from "../components/engineering/Footer";
 import Contact from "../components/engineering/Contact";
@@ -42,6 +43,12 @@ const ProjectsPage = () => {
                 />
 
                 <div className="relative z-10 w-full px-[5%] md:px-[10%]">
+                    {/* Back Button */}
+                    <Link to="/" className="inline-flex items-center text-sm text-slate-500 hover:text-[#0B1120] mb-8 transition-colors group">
+                        <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+                        {language === 'de' ? 'Zurück zur Startseite' : 'Back to Home'}
+                    </Link>
+
                     {/* Header */}
                     <div className="max-w-3xl mb-16">
                         <span className="block text-xs font-mono uppercase tracking-widest text-[#64748B] mb-4">
@@ -58,10 +65,9 @@ const ProjectsPage = () => {
                     {/* Gallery Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {allProjects.map((project: any, i: number) => (
-                            <Link
-                                to={`/projects/${project.slug}`}
+                            <div
                                 key={`${project.slug}-${i}`}
-                                className="group flex flex-col bg-white border border-[#E2E8F0] shadow-[0_30px_70px_-20px_rgba(0,0,0,0.1)] overflow-hidden hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] transition-all duration-500 animate-in fade-in slide-in-from-bottom-8"
+                                className="group flex flex-col bg-white border border-[#E2E8F0] shadow-[0_30px_70px_-20px_rgba(0,0,0,0.1)] overflow-hidden transition-all duration-500 animate-in fade-in slide-in-from-bottom-8"
                                 style={{ animationDelay: `${i * 100}ms` }}
                             >
                                 {/* IMAGE AREA */}
@@ -98,10 +104,9 @@ const ProjectsPage = () => {
                                             <span className="text-[10px] uppercase tracking-wider text-[#94A3B8] font-bold mb-1">Impact</span>
                                             <span className="text-xl font-mono font-bold text-[#10B981] tracking-tight">{project.result}</span>
                                         </div>
-                                        <ArrowUpRight className="w-5 h-5 text-[#CBD5E1] group-hover:text-[#10B981] transition-colors duration-300" />
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
                         ))}
                     </div>
                 </div>

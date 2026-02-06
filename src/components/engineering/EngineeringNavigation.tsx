@@ -24,10 +24,10 @@ const EngineeringNavigation = ({ forceDark = false }: EngineeringNavigationProps
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const navItems = [
+    const navItems: { label: string; href: string; id?: string; badge?: string }[] = [
         { label: t.solutions, href: '#solutions', id: 'solutions' },
         { label: t.projects, href: '/projects' },
-        { label: t.academy, href: '#', badge: t.soon },
+        { label: t.academy, href: '/academy' },
     ];
 
     return (

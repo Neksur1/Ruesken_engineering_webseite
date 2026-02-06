@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import { useLanguage } from "../../context/LanguageContext";
 import { translations } from "../../i18n/translations";
-import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Reveal from "@/components/ui/Reveal";
 
 const Projects = () => {
@@ -85,9 +85,8 @@ const Projects = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {visibleItems.map((project, i) => (
                             <Reveal key={`${project.slug}-${i}`} delay={i * 0.1} width="100%" className="h-full">
-                                <Link
-                                    to={`/projects/${project.slug}`}
-                                    className="group flex flex-col bg-white rounded-sm border border-slate-200 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.15)] hover:shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] overflow-hidden transition-all duration-500 animate-in fade-in slide-in-from-right-4 h-full"
+                                <div
+                                    className="group flex flex-col bg-white rounded-sm border border-slate-200 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.15)] overflow-hidden transition-all duration-500 animate-in fade-in slide-in-from-right-4 h-full"
                                     style={{ animationDelay: `${i * 100}ms` }}
                                 >
                                     {/* IMAGE AREA with B&W -> Color Effect */}
@@ -125,10 +124,9 @@ const Projects = () => {
                                                 <span className="text-[10px] uppercase tracking-wider text-[#94A3B8] font-bold mb-0.5">Impact</span>
                                                 <span className="text-xl font-mono font-bold text-[#10B981] tracking-tight">{project.result}</span>
                                             </div>
-                                            <ArrowUpRight className="w-5 h-5 text-[#CBD5E1] group-hover:text-[#10B981] transition-colors duration-300" />
                                         </div>
                                     </div>
-                                </Link>
+                                </div>
                             </Reveal>
                         ))}
                     </div>

@@ -10,7 +10,7 @@ const Contact = () => {
             {/* Solid Background to hide global grid */}
             <div className="absolute inset-0 bg-[#030712] z-0"></div>
 
-            <div className="relative z-10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <div className="relative z-10 max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
 
                 {/* LEFT COLUMN: Info */}
                 <Reveal width="100%" className="h-full">
@@ -44,31 +44,31 @@ const Contact = () => {
                 {/* RIGHT COLUMN: Form */}
                 <div className="w-full">
                     <Reveal width="100%" delay={0.2}>
-                        <form className="space-y-6">
-                            <div className="space-y-2">
+                        <form className="space-y-8">
+                            <div className="space-y-3">
                                 <label htmlFor="name" className="text-sm font-mono uppercase tracking-widest text-[#B0B8C4]">
                                     Name <span className="text-white">*</span>
                                 </label>
                                 <Input
                                     id="name"
                                     placeholder="Ihr Name"
-                                    className="bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-white h-10 rounded-none text-sm"
+                                    className="bg-white/10 border-white/20 hover:bg-white/15 text-white placeholder:text-white/20 focus:border-white h-10 rounded-none text-sm"
                                     required
                                 />
                             </div>
 
-                            <div className="space-y-2">
+                            <div className="space-y-3">
                                 <label htmlFor="company" className="text-sm font-mono uppercase tracking-widest text-[#B0B8C4]">
                                     Unternehmen
                                 </label>
                                 <Input
                                     id="company"
                                     placeholder="Ihr Unternehmen"
-                                    className="bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-white h-10 rounded-none text-sm"
+                                    className="bg-white/10 border-white/20 hover:bg-white/15 text-white placeholder:text-white/20 focus:border-white h-10 rounded-none text-sm"
                                 />
                             </div>
 
-                            <div className="space-y-2">
+                            <div className="space-y-3">
                                 <label htmlFor="email" className="text-sm font-mono uppercase tracking-widest text-[#B0B8C4]">
                                     E-Mail <span className="text-white">*</span>
                                 </label>
@@ -76,19 +76,19 @@ const Contact = () => {
                                     id="email"
                                     type="email"
                                     placeholder="ihre.email@beispiel.de"
-                                    className="bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-white h-10 rounded-none text-sm"
+                                    className="bg-white/10 border-white/20 hover:bg-white/15 text-white placeholder:text-white/20 focus:border-white h-10 rounded-none text-sm"
                                     required
                                 />
                             </div>
 
-                            <div className="space-y-2">
+                            <div className="space-y-3">
                                 <label htmlFor="message" className="text-sm font-mono uppercase tracking-widest text-[#B0B8C4]">
                                     Nachricht
                                 </label>
                                 <Textarea
                                     id="message"
                                     placeholder="Wie können wir Ihnen helfen?"
-                                    className="bg-white/5 border-white/10 text-white placeholder:text-white/20 focus:border-white min-h-[120px] rounded-none resize-none text-sm"
+                                    className="bg-white/10 border-white/20 hover:bg-white/15 text-white placeholder:text-white/20 focus:border-white min-h-[120px] rounded-none resize-none text-sm"
                                 />
                             </div>
 
