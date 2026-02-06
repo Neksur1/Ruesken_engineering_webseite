@@ -5,109 +5,17 @@ import { translations } from "../../i18n/translations";
 import EngineeringNavigation from "./EngineeringNavigation";
 import Footer from "./Footer";
 import Contact from "./Contact";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-
-/* ── helpers ─────────────────────────────────────────────── */
-
-const FadeIn = ({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) => {
-    const ref = useRef<HTMLDivElement>(null);
-    const [vis, setVis] = useState(false);
-    useEffect(() => {
-        const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVis(true); }, { threshold: 0.08 });
-        if (ref.current) o.observe(ref.current);
-        return () => o.disconnect();
-    }, []);
-    return (
-        <div ref={ref} className={`transition-all duration-700 ease-out ${className}`}
-            style={{ opacity: vis ? 1 : 0, transform: vis ? 'translateY(0)' : 'translateY(20px)', transitionDelay: `${delay}ms` }}>
-            {children}
-        </div>
-    );
-};
-
-const splitText = (text: string) => {
-    const m = text.match(/^(.+?[.!:])(\s+[A-ZÄÖÜ].*)/s);
-    return m ? { lead: m[1], body: m[2].trim() } : { lead: text, body: '' };
-};
-
-// isLead: in headlines, numbers get bold+color, terms get semibold — rest stays normal weight
-// in body: numbers get semibold+dark, terms get medium — rest stays light
-const Hl = ({ text, isLead = false }: { text: string; isLead?: boolean }) => {
-    const parts = text.split(/(\d+[\d.,]*\s*%?x?|\b(?:CRM|AI|KI|NLP|LLM|API|CMS|ISO|B2B|R&I|DACH|Deep.?Learning|Buying.?Center)\b)/gi);
-    return <>
-        {parts.map((p, i) => {
-            if (/^\d+[\d.,]*\s*%?x?$/.test(p)) {
-                return <span key={i} className={isLead ? "font-bold text-[#0B1120]" : "font-semibold text-[#0B1120]"}>{p}</span>;
-            }
-            if (/^(?:CRM|AI|KI|NLP|LLM|API|CMS|ISO|B2B|R&I|DACH|Deep.?Learning|Buying.?Center)$/i.test(p)) {
-                return <span key={i} className={isLead ? "font-semibold text-[#0B1120]" : "font-medium text-[#0B1120]"}>{p}</span>;
-            }
-            return <span key={i}>{p}</span>;
-        })}
-    </>;
-};
-
-/* ── animated horizontal bars (light) ────────────────────── */
-
-const ComparisonBars = ({ before, after, animate }: {
-    before: { name: string; value: number; label: string };
-    after: { name: string; value: number; label: string };
-    animate: boolean;
-}) => {
-    const max = Math.max(before.value, after.value);
-    return (
-        <div className="space-y-4">
-            {/* Before */}
-            <div>
-                <div className="flex justify-between items-baseline mb-1">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400">{before.name}</span>
-                    <span className="text-[10px] font-mono text-slate-400">{before.label}</span>
-                </div>
-                <div className="relative h-9 bg-slate-50 border border-slate-100 overflow-hidden">
-                    <div className="absolute inset-y-0 left-0 bg-slate-200/70 transition-all duration-[1.4s] ease-out"
-                        style={{ width: animate ? `${(before.value / max) * 100}%` : '0%' }} />
-                    <div className="absolute inset-0 flex items-center px-3">
-                        <span className="text-sm font-bold text-slate-400">{before.value}</span>
-                    </div>
-                </div>
-            </div>
-            {/* After */}
-            <div>
-                <div className="flex justify-between items-baseline mb-1">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-[#10B981]">{after.name}</span>
-                    <span className="text-[10px] font-mono text-[#10B981]/60">{after.label}</span>
-                </div>
-                <div className="relative h-9 bg-[#10B981]/[0.06] border border-[#10B981]/10 overflow-hidden">
-                    <div className="absolute inset-y-0 left-0 bg-[#10B981] transition-all duration-[1.8s] ease-out"
-                        style={{ width: animate ? `${(after.value / max) * 100}%` : '0%' }} />
-                    <div className="absolute inset-0 flex items-center px-3">
-                        <span className="text-sm font-bold text-white">{after.value}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-/* ── main component ──────────────────────────────────────── */
+import { ArrowLeft, CheckCircle2, TrendingUp, Clock, Zap } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, CartesianGrid } from 'recharts';
 
 const ProjectDetail = () => {
     const { slug } = useParams<{ slug: string }>();
     const { language } = useLanguage();
     const t = translations[language].engineering.projects;
 
-    const projectImages = [
-        "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop",
-    ];
-
-    const idx = t.items.findIndex((item: any) => item.slug === slug);
-    const project = idx !== -1 ? t.items[idx] : null;
-    const prev = idx > 0 ? t.items[idx - 1] : null;
-    const next = idx < t.items.length - 1 ? t.items[idx + 1] : null;
+    // Find project
+    const projectIndex = t.items.findIndex((item: any) => item.slug === slug);
+    const project = projectIndex !== -1 ? t.items[projectIndex] : null;
 
     const chartRef = useRef<HTMLDivElement>(null);
     const [chartVis, setChartVis] = useState(false);
@@ -128,222 +36,210 @@ const ProjectDetail = () => {
         );
     }
 
-    const image = projectImages[idx % projectImages.length];
-    const bef = project.chartData?.[0];
-    const aft = project.chartData?.[1];
-    const factor = bef && aft
-        ? (aft.value > bef.value ? Math.round(aft.value / bef.value) : Math.round(bef.value / aft.value))
-        : null;
+    // Helper to render text with markdown-like features (bold **, list -)
+    const renderFormattedText = (text: string) => {
+        if (!text) return null;
+        const lines = text.split('\n');
 
-    const ch = splitText(project.fullProblem || project.challenge);
-    const sol = splitText(project.fullSolution || project.details);
-    const res = splitText(project.fullResult || '');
+        return lines.map((line, i) => {
+            const isListItem = line.trim().startsWith('-');
+            const content = isListItem ? line.trim().substring(1).trim() : line;
+
+            // Parse bold text **...**
+            const parts = content.split(/(\*\*.*?\*\*)/g).map((part, j) => {
+                if (part.startsWith('**') && part.endsWith('**')) {
+                    return <strong key={j} className="font-bold text-slate-800">{part.slice(2, -2)}</strong>;
+                }
+                return part;
+            });
+
+            if (isListItem) {
+                return (
+                    <div key={i} className="flex items-start mb-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-500 mr-2.5 shrink-0 mt-0.5" />
+                        <p className="text-base leading-relaxed text-slate-600">{parts}</p>
+                    </div>
+                );
+            }
+
+            return (
+                <p key={i} className="text-base leading-relaxed text-slate-600 mb-3">
+                    {parts}
+                </p>
+            );
+        });
+    };
+
+    // Chart customization
+    const CustomTooltip = ({ active, payload, label }: any) => {
+        if (active && payload && payload.length) {
+            return (
+                <div className="bg-white p-3 border border-slate-200 shadow-xl rounded-sm">
+                    <p className="font-mono text-[10px] text-slate-500 uppercase mb-1">{label}</p>
+                    <div className="flex items-end gap-2">
+                        <span className="text-lg font-bold text-[#0B1120]">{payload[0].value}</span>
+                        <span className="text-emerald-600 font-mono text-[10px] bg-emerald-50 px-1.5 py-0.5 rounded-sm mb-0.5">
+                            {payload[0].payload.label}
+                        </span>
+                    </div>
+                </div>
+            );
+        }
+        return null;
+    };
 
     return (
         <div className="min-h-screen font-sans">
             <EngineeringNavigation forceDark={true} />
 
             <article>
-                {/* ─── HERO ─── */}
-                <div className="w-full h-[55vh] md:h-[65vh] relative bg-[#0B1120] overflow-hidden">
-                    <img src={image} alt={project.title}
-                        className="absolute inset-0 w-full h-full object-cover opacity-25" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120] via-[#0B1120]/40 to-[#0B1120]/20" />
+                {/* HERO SECTION - Technical/Abstract */}
+                <div className="w-full relative bg-[#0B1120] overflow-hidden">
+                    {/* Abstract Tech Background */}
+                    <div className="absolute inset-0 z-0">
+                        <div className="absolute inset-0 opacity-20"
+                            style={{
+                                backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)',
+                                backgroundSize: '40px 40px'
+                            }}
+                        />
+                        <div className="absolute top-0 right-0 w-[50vw] h-[50vh] bg-emerald-500/10 blur-[120px] rounded-full" />
+                        <div className="absolute bottom-0 left-0 w-[40vw] h-[40vh] bg-blue-500/10 blur-[100px] rounded-full" />
+                    </div>
 
-                    <div className="absolute bottom-0 left-0 w-full px-[5%] md:px-[10%] pb-10 md:pb-14">
-                        <Link to="/projects"
-                            className="inline-flex items-center gap-2 text-xs text-white/35 hover:text-white/70 transition-colors mb-5 font-mono uppercase tracking-widest group">
-                            <ArrowLeft className="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" />
-                            {t.labels?.backToOverview || "Back to Overview"}
+                    <div className="relative z-10 w-full px-[5%] md:px-[10%] pt-32 pb-16">
+                        <Link to="/projects" className="inline-flex items-center text-sm text-slate-400 hover:text-white mb-6 transition-colors group">
+                            <ArrowLeft className="w-3.5 h-3.5 mr-2 group-hover:-translate-x-1 transition-transform" />
+                            Back to Overview
                         </Link>
-                        <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#10B981]/80 mb-2.5">{project.category}</div>
-                        <h1 className="text-3xl md:text-5xl lg:text-[3.5rem] font-bold text-white tracking-tight leading-[1.1] max-w-3xl">
-                            {project.title}
-                        </h1>
+
+                        <div className="max-w-4xl">
+                            <span className="inline-block text-[10px] font-mono uppercase tracking-widest text-[#10B981] mb-4 border border-[#10B981]/30 bg-[#10B981]/10 px-2 py-1 rounded-sm">
+                                {project.category}
+                            </span>
+                            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.1] mb-6">
+                                {project.title}
+                            </h1>
+
+                            {/* Key Metrics Hero Cards */}
+                            {project.metrics && (
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-8 w-full max-w-2xl">
+                                    {project.metrics.map((metric: any, idx: number) => (
+                                        <div key={idx} className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-sm hover:bg-white/10 transition-colors">
+                                            <div className="text-2xl md:text-3xl font-bold text-white mb-0.5">{metric.value}</div>
+                                            <div className="text-[10px] font-mono uppercase tracking-wider text-slate-400">{metric.label}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
 
-                {/* ─── CONTENT AREA ─── */}
-                <div className="bg-[#F3F4F6]">
-                    <div className="px-[5%] md:px-[10%]">
-                        <div className="max-w-[1300px] mx-auto">
+                <div className="px-[5%] md:px-[10%] py-16 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    {/* Background Pattern */}
+                    <div className="absolute inset-0 pointer-events-none opacity-40 mix-blend-multiply z-0"
+                        style={{ backgroundImage: 'linear-gradient(#CBD5E1 1px, transparent 1px), linear-gradient(90deg, #CBD5E1 1px, transparent 1px)', backgroundSize: '40px 40px' }}
+                    />
 
-                            {/* Two-column layout: narrative (left) + sticky data panel (right) */}
-                            <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 lg:gap-10">
-
-                                {/* ─── LEFT: Narrative ─── */}
-                                <div className="lg:col-span-7 xl:col-span-8">
-
-                                    {/* Key facts row (overlapping hero) */}
-                                    <FadeIn>
-                                        <div className="bg-white border border-slate-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.04)] -mt-7 mb-10 grid grid-cols-2 divide-x divide-slate-100">
-                                            <div className="p-4 md:p-5">
-                                                <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-400 mb-0.5">{t.labels?.result || "Result"}</div>
-                                                <div className="text-base md:text-lg font-bold text-[#10B981]">{project.result}</div>
-                                            </div>
-                                            <div className="p-4 md:p-5">
-                                                <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-400 mb-0.5">System</div>
-                                                <div className="text-sm font-semibold text-[#0B1120] leading-snug">{project.details}</div>
-                                            </div>
-                                        </div>
-                                    </FadeIn>
-
-                                    {/* Challenge */}
-                                    <FadeIn>
-                                        <section className="mb-12">
-                                            <h2 className="text-sm font-semibold uppercase tracking-[0.15em] text-slate-400 mb-4">
-                                                {t.labels?.challenge || "Challenge"}
-                                            </h2>
-                                            <p className="text-xl md:text-2xl font-normal text-[#1a2332] leading-[1.45] tracking-tight mb-4">
-                                                <Hl text={ch.lead} isLead />
-                                            </p>
-                                            {ch.body && (
-                                                <p className="text-[15px] leading-[1.85] text-slate-500">
-                                                    <Hl text={ch.body} />
-                                                </p>
-                                            )}
-                                        </section>
-                                    </FadeIn>
-
-                                    <div className="h-[1px] bg-slate-200/80 mb-12" />
-
-                                    {/* Solution */}
-                                    <FadeIn>
-                                        <section className="mb-12">
-                                            <h2 className="text-sm font-semibold uppercase tracking-[0.15em] text-[#10B981] mb-4">
-                                                {t.labels?.solution || "Solution"}
-                                            </h2>
-                                            <p className="text-xl md:text-2xl font-normal text-[#1a2332] leading-[1.45] tracking-tight mb-4">
-                                                <Hl text={sol.lead} isLead />
-                                            </p>
-                                            {sol.body && (
-                                                <p className="text-[15px] leading-[1.85] text-slate-500">
-                                                    <Hl text={sol.body} />
-                                                </p>
-                                            )}
-                                        </section>
-                                    </FadeIn>
-
-                                    <div className="h-[1px] bg-slate-200/80 mb-12" />
-
-                                    {/* Result narrative */}
-                                    <FadeIn>
-                                        <section className="pb-16 md:pb-24">
-                                            <h2 className="text-sm font-semibold uppercase tracking-[0.15em] text-[#10B981] mb-4">
-                                                {t.labels?.impact || "Ergebnis"}
-                                            </h2>
-                                            <p className="text-xl md:text-2xl font-normal text-[#1a2332] leading-[1.45] tracking-tight mb-4">
-                                                <Hl text={res.lead} isLead />
-                                            </p>
-                                            {res.body && (
-                                                <p className="text-[15px] leading-[1.85] text-slate-500">
-                                                    <Hl text={res.body} />
-                                                </p>
-                                            )}
-                                        </section>
-                                    </FadeIn>
+                    {/* LEFT COLUMN: Main Story */}
+                    <div className="lg:col-span-7 space-y-4 relative z-10">
+                        <section className="bg-white p-6 md:p-8 border-t-4 border-t-slate-200 shadow-sm">
+                            <div className="flex items-center gap-2.5 mb-3">
+                                <div className="p-1.5 bg-red-50 rounded-sm">
+                                    <TrendingUp className="w-4 h-4 text-red-500" />
                                 </div>
-
-                                {/* ─── RIGHT: Sticky data panel ─── */}
-                                <div className="lg:col-span-5 xl:col-span-4">
-                                    <div ref={chartRef} className="lg:sticky lg:top-24 pt-6 lg:pt-0 pb-16 lg:pb-24">
-                                        <FadeIn delay={150}>
-                                            <div className="bg-white border border-slate-200/80 shadow-[0_4px_24px_rgba(0,0,0,0.04)] -mt-0 lg:-mt-7">
-
-                                                {/* Header */}
-                                                <div className="p-5 md:p-6 border-b border-slate-100">
-                                                    <div className="text-[9px] font-mono uppercase tracking-[0.25em] text-slate-400 mb-1">
-                                                        Impact
-                                                    </div>
-                                                    <div className="text-3xl md:text-4xl font-bold text-[#0B1120] tracking-tight leading-none">
-                                                        {project.result}
-                                                    </div>
-                                                </div>
-
-                                                {/* Chart */}
-                                                {bef && aft && (
-                                                    <div className="p-5 md:p-6 border-b border-slate-100">
-                                                        <ComparisonBars before={bef} after={aft} animate={chartVis} />
-                                                    </div>
-                                                )}
-
-                                                {/* Factor + metrics */}
-                                                <div className="p-5 md:p-6">
-                                                    {factor && factor > 1 && (
-                                                        <div className="flex items-baseline gap-2.5 mb-4">
-                                                            <span className="text-2xl font-bold text-[#10B981]">{factor}x</span>
-                                                            <span className="text-xs font-mono text-slate-400">{language === 'de' ? 'Verbesserung' : 'Improvement'}</span>
-                                                        </div>
-                                                    )}
-                                                    <div className="grid grid-cols-2 gap-4">
-                                                        {bef && (
-                                                            <div>
-                                                                <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-400 mb-0.5">{bef.name}</div>
-                                                                <div className="text-lg font-bold text-slate-300">{bef.value}</div>
-                                                                <div className="text-[10px] font-mono text-slate-400">{bef.label}</div>
-                                                            </div>
-                                                        )}
-                                                        {aft && (
-                                                            <div>
-                                                                <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-400 mb-0.5">{aft.name}</div>
-                                                                <div className="text-lg font-bold text-[#0B1120]">{aft.value}</div>
-                                                                <div className="text-[10px] font-mono text-slate-400">{aft.label}</div>
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                </div>
-
-                                                {/* CTA inside panel */}
-                                                <div className="px-5 md:px-6 pb-5 md:pb-6">
-                                                    <a href="#contact"
-                                                        className="w-full flex items-center justify-center gap-2 bg-[#0B1120] text-white px-5 py-3 text-xs font-bold uppercase tracking-widest hover:bg-[#10B981] transition-colors duration-300 group">
-                                                        {t.labels?.bookCall || "Book Discovery Call"}
-                                                        <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </FadeIn>
-                                    </div>
-                                </div>
+                                <h2 className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">{t.labels?.challenge || "CHALLENGE"}</h2>
                             </div>
-                        </div>
+                            <div className="prose prose-slate prose-p:text-sm prose-p:leading-relaxed max-w-none">
+                                {renderFormattedText(project.fullProblem || project.challenge)}
+                            </div>
+                        </section>
+
+                        <section className="bg-white p-6 md:p-8 border-t-4 border-t-[#10B981] shadow-xl shadow-emerald-900/5">
+                            <div className="flex items-center gap-2.5 mb-3">
+                                <div className="p-1.5 bg-emerald-50 rounded-sm">
+                                    <Zap className="w-4 h-4 text-emerald-500" />
+                                </div>
+                                <h2 className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">{t.labels?.solution || "SOLUTION"}</h2>
+                            </div>
+                            <div className="prose prose-slate prose-p:text-sm prose-p:leading-relaxed max-w-none">
+                                {renderFormattedText(project.fullSolution || project.details)}
+                            </div>
+                        </section>
                     </div>
 
-                    {/* ─── Prev / Next ─── */}
-                    <div className="border-t border-slate-200/80 bg-white">
-                        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-100">
-                            <div className="group">
-                                {prev ? (
-                                    <Link to={`/projects/${prev.slug}`}
-                                        className="flex items-center gap-5 px-[5%] md:px-[10%] py-7 md:py-9 hover:bg-slate-50 transition-colors">
-                                        <ArrowLeft className="w-4 h-4 text-slate-300 group-hover:text-slate-500 transition-all group-hover:-translate-x-1 shrink-0" />
-                                        <div className="min-w-0">
-                                            <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-400 mb-0.5">
-                                                {language === 'de' ? 'Vorheriges Projekt' : 'Previous'}
-                                            </div>
-                                            <div className="text-sm font-semibold text-slate-400 group-hover:text-[#0B1120] transition-colors truncate">
-                                                {prev.title}
-                                            </div>
+                    {/* RIGHT COLUMN: Results & Data */}
+                    <div className="lg:col-span-5 space-y-4 sticky top-24 h-fit relative z-10">
+                        {/* Impact Card - Light Theme */}
+                        <div className="bg-white border border-[#E2E8F0] p-6 md:p-8 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.08)] relative overflow-hidden group hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.12)] transition-all duration-500">
+
+                            <div className="relative z-10">
+                                <div className="flex items-center gap-2.5 mb-5 border-b border-slate-100 pb-3">
+                                    <Clock className="w-3.5 h-3.5 text-[#10B981]" />
+                                    <h3 className="text-[10px] uppercase tracking-wider text-[#94A3B8] font-bold">{t.labels?.impact || "IMPACT ANALYSIS"}</h3>
+                                </div>
+
+                                <div className="mb-5">
+                                    <div className="text-[10px] text-slate-400 font-mono uppercase tracking-widest mb-1">{t.labels?.result || "RESULT"}</div>
+                                    {/* PRIORITIZE COST REDUCTION */}
+                                    <div className="text-3xl lg:text-4xl font-bold text-[#10B981] tracking-tight">
+                                        {project.metrics?.find((m: any) => m.label.includes('Cost') || m.label.includes('Kosten'))?.value || project.result}
+                                    </div>
+                                    <div className="text-xs text-slate-500 mt-1 font-medium bg-emerald-50 inline-block px-1.5 py-0.5 rounded-sm">
+                                        {project.metrics?.find((m: any) => m.label.includes('Cost') || m.label.includes('Kosten'))?.label || "Efficiency Boost"}
+                                    </div>
+                                </div>
+
+                                <div className="text-slate-600 mb-6 text-sm leading-relaxed">
+                                    {renderFormattedText(project.fullResult)}
+                                </div>
+
+                                {/* CHART AREA */}
+                                {project.chartData && (
+                                    <div className="w-full mt-5">
+                                        <div className="text-[10px] font-mono text-slate-400 mb-2.5 uppercase tracking-widest">Performance Comparison</div>
+                                        <div className="h-40 bg-slate-50 border border-slate-100 p-3 rounded-sm">
+                                            <ResponsiveContainer width="100%" height="100%">
+                                                <BarChart data={project.chartData} barSize={32}>
+                                                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E2E8F0" />
+                                                    <XAxis
+                                                        dataKey="name"
+                                                        stroke="#94A3B8"
+                                                        fontSize={10}
+                                                        tickLine={false}
+                                                        axisLine={false}
+                                                        dy={5}
+                                                    />
+                                                    <YAxis
+                                                        stroke="#94A3B8"
+                                                        fontSize={10}
+                                                        tickLine={false}
+                                                        axisLine={false}
+                                                    />
+                                                    <Tooltip content={<CustomTooltip />} cursor={{ fill: '#F1F5F9' }} />
+                                                    <Bar dataKey="value" radius={[3, 3, 0, 0]}>
+                                                        {project.chartData.map((entry: any, index: number) => (
+                                                            <Cell
+                                                                key={`cell-${index}`}
+                                                                fill={index === 1 ? '#10B981' : '#CBD5E1'}
+                                                            />
+                                                        ))}
+                                                    </Bar>
+                                                </BarChart>
+                                            </ResponsiveContainer>
                                         </div>
-                                    </Link>
-                                ) : <div className="py-7 md:py-9" />}
+                                    </div>
+                                )}
                             </div>
-                            <div className="group">
-                                {next ? (
-                                    <Link to={`/projects/${next.slug}`}
-                                        className="flex items-center justify-end gap-5 px-[5%] md:px-[10%] py-7 md:py-9 hover:bg-slate-50 transition-colors text-right">
-                                        <div className="min-w-0">
-                                            <div className="text-[9px] font-mono uppercase tracking-[0.2em] text-slate-400 mb-0.5">
-                                                {language === 'de' ? 'Nächstes Projekt' : 'Next'}
-                                            </div>
-                                            <div className="text-sm font-semibold text-slate-400 group-hover:text-[#0B1120] transition-colors truncate">
-                                                {next.title}
-                                            </div>
-                                        </div>
-                                        <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-slate-500 transition-all group-hover:translate-x-1 shrink-0" />
-                                    </Link>
-                                ) : <div className="py-7 md:py-9" />}
-                            </div>
+                        </div>
+
+                        <div className="bg-[#0B1120] p-5 text-center shadow-lg group cursor-pointer transition-transform hover:-translate-y-1">
+                            <h4 className="font-bold text-white text-sm mb-2.5">{t.labels?.ready || "Ready for similar results?"}</h4>
+                            <a href="#contact" className="inline-flex items-center justify-center gap-2 w-full bg-white/10 border border-white/20 text-white px-5 py-2.5 rounded-sm text-sm font-medium hover:bg-white hover:text-[#0B1120] transition-all group-hover:border-white">
+                                {t.labels?.bookCall || "Book Discovery Call"}
+                                <ArrowLeft className="w-3.5 h-3.5 rotate-180 transition-transform group-hover:translate-x-1" />
+                            </a>
                         </div>
                     </div>
                 </div>

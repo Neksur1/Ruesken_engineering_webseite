@@ -84,16 +84,16 @@ export const translations = {
                         description: "Die Brücke zwischen physischer und digitaler Welt. Wir extrahieren verwertbare Daten aus *technischen Zeichnungen*, R&I-Fließbildern und Kamerastreams für automatisierte *Qualitätskontrolle*.",
                         comparison: {
                             from: "Technische Zeichnung",
-                            to: "Digitaler Zwilling"
+                            to: "Parametrisches 3D-Modell"
                         }
                     },
                     {
                         title: "RAG & KNOWLEDGE",
-                        headline: "Sichere Intelligenz für Ihr Unternehmenswissen.",
-                        description: "Befähigen Sie Ihr Team mit sofortigem Zugriff auf *ISO-Normen*, interne Dokumentation und Projekthistorie. Keine Halluzinationen, nur zitierte, *verlässliche Fakten* aus Ihrer sicheren Datenbank.",
+                        headline: "Wissen, das agiert, statt nur zu existieren.",
+                        description: "Wissen sollte den *Arbeitsalltag* steuern. Wir integrieren *KI-Agenten* so, dass sie Mitarbeiter entlasten und *autonome Entscheidungen* auf Basis Ihrer Daten treffen.",
                         comparison: {
-                            from: "Datensilos",
-                            to: "Sofortiges Wissen"
+                            from: "Passive Datenablage",
+                            to: "Autonome Expertise"
                         }
                     }
                 ]
@@ -120,12 +120,17 @@ export const translations = {
                         result: "4x Lead-Qualität",
                         details: "Vollautonomes Multi-Agenten-System",
                         slug: "sales-intelligence",
-                        fullProblem: "Ein führender Industriekonzern im Antriebsbereich stand vor einer kritischen Herausforderung: Hochqualifizierte Vertriebsingenieure verbrachten bis zu 60% ihrer Arbeitszeit mit manueller Lead-Recherche. Die CRM-Daten waren chronisch veraltet, Buying-Center-Strukturen unvollständig, und der Datenbeschaffungsprozess blockierte die Skalierung datengetriebener Vertriebsprozesse.",
-                        fullSolution: "Entwicklung eines vollautonomen KI-Agentensystems, das aus minimalen Eingaben (Name, E-Mail) komplette Lead-Profile anreichert. Das System identifiziert automatisch relevante Entscheider im Buying Center, verifiziert E-Mail-Adressen, ergänzt firmografische Daten (Umsatz, Mitarbeiterzahl, Standorte) und klassifiziert Unternehmen nach Potenzial. Das modulare Design ermöglicht Erweiterungen wie automatisierte Wettbewerbsanalyse und Outreach-Sequenzen.",
-                        fullResult: "Der manuelle Rechercheaufwand wurde um über 90% reduziert. Die Datenqualität im CRM stieg signifikant, und das System bildet nun die Grundlage für vollständig automatisierte Lead-Generierung und personalisierte Ansprache im Enterprise-Scale.",
+                        fullProblem: "**Herausforderung:**\n- **60% Zeitverlust:** Hochqualifizierte Ingenieure verbrachten den Großteil ihrer Zeit mit manueller Recherche statt Vertrieb.\n- **Veraltete Daten:** CRM-Daten waren chronisch inaktuell, Buying-Center-Strukturen lückenhaft.\n- **Skalierungsbremse:** Der manuelle Prozess verhinderte jede Form von automatisiertem Outreach.",
+                        fullSolution: "**Lösung:**\n- **Autonome Recherche:** KI-Agenten recherchieren Lead-Daten vollautonom aus öffentlichen Quellen.\n- **Buying-Center-Analyse:** Identifikation und Validierung aller relevanten Entscheidungsträger.\n- **Echtzeit-Anreicherung:** Automatische Ergänzung von Umsatz, Mitarbeiterzahl und Tech-Stack.\n- **Nahtlose Integration:** Direkter Push validierter Leads in das CRM-System.",
+                        fullResult: "**Ergebnis:**\nDer Vertriebsprozess wurde revolutioniert. Statt teurer manueller Recherche liefert das System nun einen konstanten Strom hochqualifizierter Leads bei einem Bruchteil der Kosten.",
+                        metrics: [
+                            { value: "98%", label: "Kostenreduktion" },
+                            { value: "4x", label: "Lead-Qualität" },
+                            { value: "< 2min", label: "Antwortzeit" }
+                        ],
                         chartData: [
-                            { name: "Manuell", value: 8, label: "Leads / Tag" },
-                            { name: "AI-Agents", value: 120, label: "Leads / Tag" }
+                            { name: "Manuell", value: 8, label: "Leads/Tag" },
+                            { name: "AI-Agents", value: 120, label: "Leads/Tag" }
                         ]
                     },
                     {
@@ -292,7 +297,7 @@ export const translations = {
                         description: "Bridging the gap between the physical and digital world. We extract actionable data from technical drawings, P&IDs, and camera feeds to automate quality control and data entry.",
                         comparison: {
                             from: "Manual Review",
-                            to: "Digital Twin"
+                            to: "Parametric 3D Model"
                         }
                     },
                     {
@@ -328,12 +333,17 @@ export const translations = {
                         result: "4x Lead Quality",
                         details: "Fully Autonomous Multi-Agent System",
                         slug: "sales-intelligence",
-                        fullProblem: "A leading industrial corporation in the drive technology sector faced a critical challenge: Highly qualified sales engineers spent up to 60% of their working time on manual lead research. CRM data was chronically outdated, buying center structures incomplete, and the data acquisition process blocked the scaling of data-driven sales processes.",
-                        fullSolution: "Development of a fully autonomous AI agent system that enriches complete lead profiles from minimal inputs (name, email). The system automatically identifies relevant decision-makers in the buying center, verifies email addresses, supplements firmographic data (revenue, employee count, locations), and classifies companies by potential. The modular design enables extensions such as automated competitor analysis and outreach sequences.",
-                        fullResult: "Manual research effort was reduced by over 90%. CRM data quality increased significantly, and the system now forms the foundation for fully automated lead generation and personalized outreach at enterprise scale.",
+                        fullProblem: "**Challenge:**\n- **60% Time Loss:** Qualified engineers spent most of their time researching instead of selling.\n- **Outdated Data:** CRM data was chronically stale, buying center structures incomplete.\n- **Scaling Brake:** Manual processes prevented any form of automated outreach.",
+                        fullSolution: "**Solution:**\n- **Autonomous Research:** AI agents independently research lead data from public sources.\n- **Buying Center Analysis:** Identification and validation of all relevant decision-makers.\n- **Real-time Enrichment:** Automatic addition of revenue, employee count, and tech stack.\n- **Seamless Integration:** Direct push of validated leads into the CRM system.",
+                        fullResult: "**Result:**\nThe sales process was revolutionized. Instead of expensive manual research, the system now delivers a constant stream of high-quality leads at a fraction of the cost.",
+                        metrics: [
+                            { value: "98%", label: "Cost Reduction" },
+                            { value: "4x", label: "Lead Quality" },
+                            { value: "< 2min", label: "Response Time" }
+                        ],
                         chartData: [
-                            { name: "Manual", value: 8, label: "Leads / Day" },
-                            { name: "AI Agents", value: 120, label: "Leads / Day" }
+                            { name: "Manual", value: 8, label: "Leads/Day" },
+                            { name: "AI Agents", value: 120, label: "Leads/Day" }
                         ]
                     },
                     {

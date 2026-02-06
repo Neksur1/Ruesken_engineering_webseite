@@ -13,10 +13,11 @@ const ProjectsPage = () => {
 
     // Image mappings for the projects (Same as Projects.tsx)
     const projectImages = [
-        "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop", // Tourism (Plane/Global)
-        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop", // Sales/Meeting (Business)
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop", // Industrial Corp (B2B Sales)
+        "https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2064&auto=format&fit=crop", // Cruise (Ship/Travel)
         "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop", // Real Estate (Architecture)
-        "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop", // Logistics (Warehouse)
+        "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop", // Event/Speaker (Wedding/Celebration)
+        "https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070&auto=format&fit=crop", // Research (Lab/Science)
         "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop", // Manufacturing (Industry 4.0)
     ];
 
