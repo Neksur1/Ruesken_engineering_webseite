@@ -13,7 +13,7 @@ const Projects = () => {
     // Image mappings for the projects - 6 projects now
     // High-quality Unsplash images matching each project category
     const projectImages = [
-        "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2070&auto=format&fit=crop", // Industrial Corp (B2B Sales)
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop", // Industrial Corp (B2B Sales)
         "https://images.unsplash.com/photo-1548574505-5e239809ee19?q=80&w=2064&auto=format&fit=crop", // Cruise (Ship/Travel)
         "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop", // Real Estate (Architecture)
         "https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070&auto=format&fit=crop", // Event/Speaker (Wedding/Celebration)
